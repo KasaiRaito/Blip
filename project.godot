@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="Blip"
+run/main_scene="uid://cma6l1hvamigf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Blip"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
