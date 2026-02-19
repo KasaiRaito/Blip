@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cmxnbn2dtohwj"
-path="res://.godot/imported/chest.ogg-00d195dc7782917042f50533bd1ce551.oggvorbisstr"
+path="res://.godot/imported/chest.ogg-9fe56754c5bc81e2f67e2bf0820dfe99.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/TopDownAssets/Sounds/chest.ogg"
-dest_files=["res://.godot/imported/chest.ogg-00d195dc7782917042f50533bd1ce551.oggvorbisstr"]
+source_file="res://Assets/TopDownAssets/Sounds/chest.ogg"
+dest_files=["res://.godot/imported/chest.ogg-9fe56754c5bc81e2f67e2bf0820dfe99.oggvorbisstr"]
 
 [params]
 

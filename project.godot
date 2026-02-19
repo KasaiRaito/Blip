@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Blip"
+run/main_scene="uid://c0c47ohvke3cj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Transition="*res://Autoload/transition.tscn"
 
 [display]
 

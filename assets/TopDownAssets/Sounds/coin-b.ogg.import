@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://c2lx2sn8blmns"
-path="res://.godot/imported/coin-b.ogg-b8936759d8b24ac205e4bed3010233ba.oggvorbisstr"
+path="res://.godot/imported/coin-b.ogg-b2c156023e8b3cade2777ef971127b2c.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/TopDownAssets/Sounds/coin-b.ogg"
-dest_files=["res://.godot/imported/coin-b.ogg-b8936759d8b24ac205e4bed3010233ba.oggvorbisstr"]
+source_file="res://Assets/TopDownAssets/Sounds/coin-b.ogg"
+dest_files=["res://.godot/imported/coin-b.ogg-b2c156023e8b3cade2777ef971127b2c.oggvorbisstr"]
 
 [params]
 

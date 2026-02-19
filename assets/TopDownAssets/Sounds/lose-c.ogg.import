@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://cxmthyq6l8el7"
-path="res://.godot/imported/lose-c.ogg-d776d3cf4e9340eebd9554c8b47e9b46.oggvorbisstr"
+path="res://.godot/imported/lose-c.ogg-8e4aaac83efa1f1db90d36c6887ed136.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/TopDownAssets/Sounds/lose-c.ogg"
-dest_files=["res://.godot/imported/lose-c.ogg-d776d3cf4e9340eebd9554c8b47e9b46.oggvorbisstr"]
+source_file="res://Assets/TopDownAssets/Sounds/lose-c.ogg"
+dest_files=["res://.godot/imported/lose-c.ogg-8e4aaac83efa1f1db90d36c6887ed136.oggvorbisstr"]
 
 [params]
 
