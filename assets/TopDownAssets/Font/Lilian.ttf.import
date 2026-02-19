@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cmkei0r5t77jr"
-path="res://.godot/imported/Lilian.ttf-823e9e961da40d41d38debfd8fd93650.fontdata"
+path="res://.godot/imported/Lilian.ttf-826154b148d25a6ac58de02e7839321f.fontdata"
 
 [deps]
 
-source_file="res://Assets/TopDownAssets/Font/Lilian.ttf"
-dest_files=["res://.godot/imported/Lilian.ttf-823e9e961da40d41d38debfd8fd93650.fontdata"]
+source_file="res://assets/TopDownAssets/Font/Lilian.ttf"
+dest_files=["res://.godot/imported/Lilian.ttf-826154b148d25a6ac58de02e7839321f.fontdata"]
 
 [params]
 

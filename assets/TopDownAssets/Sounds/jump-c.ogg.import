@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dudus6dvqemuh"
-path="res://.godot/imported/jump-c.ogg-bedfae9eac92b80c9ca0088e1fd9ae2f.oggvorbisstr"
+path="res://.godot/imported/jump-c.ogg-9f39b3c0a3f0db44f51e6c711aa6bb0c.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/TopDownAssets/Sounds/jump-c.ogg"
-dest_files=["res://.godot/imported/jump-c.ogg-bedfae9eac92b80c9ca0088e1fd9ae2f.oggvorbisstr"]
+source_file="res://assets/TopDownAssets/Sounds/jump-c.ogg"
+dest_files=["res://.godot/imported/jump-c.ogg-9f39b3c0a3f0db44f51e6c711aa6bb0c.oggvorbisstr"]
 
 [params]
 

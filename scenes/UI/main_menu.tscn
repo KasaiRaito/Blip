@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bnad3c5tqv7rm" path="res://Scenes/UI/main_menu.gd" id="1_qwnig"]
 [ext_resource type="Shader" uid="uid://b08qjaig2dk16" path="res://shaders/BackGroun.gdshader" id="2_tfcbk"]
-[ext_resource type="Texture2D" uid="uid://bjnh3sonwurje" path="res://Assets/TopDownAssets/Sprites/background_tiled.png" id="2_yonvy"]
+[ext_resource type="Texture2D" uid="uid://bjnh3sonwurje" path="res://assets/TopDownAssets/Sprites/background_tiled.png" id="2_yonvy"]
 [ext_resource type="LabelSettings" uid="uid://dtxh3s041i0kb" path="res://Extra/FONT_48.tres" id="4_tfcbk"]
-[ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://Assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="5_e2p27"]
+[ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="5_e2p27"]
 [ext_resource type="LabelSettings" uid="uid://dncjn445hyppc" path="res://Extra/FONT_16.tres" id="6_ngj32"]
-[ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://Assets/TopDownAssets/Sounds/select-a.ogg" id="7_gih0s"]
+[ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://assets/TopDownAssets/Sounds/select-a.ogg" id="7_gih0s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngj32"]
 shader = ExtResource("2_tfcbk")

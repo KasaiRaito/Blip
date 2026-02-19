@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://criofsp5ow4wt"
-path="res://.godot/imported/Comicoro.ttf-ffd996a3ce6d7bc0b6eb195b7d0d9882.fontdata"
+path="res://.godot/imported/Comicoro.ttf-de809c0b0193650f3db1fed3d5509dd7.fontdata"
 
 [deps]
 
-source_file="res://Assets/TopDownAssets/Font/Comicoro.ttf"
-dest_files=["res://.godot/imported/Comicoro.ttf-ffd996a3ce6d7bc0b6eb195b7d0d9882.fontdata"]
+source_file="res://assets/TopDownAssets/Font/Comicoro.ttf"
+dest_files=["res://.godot/imported/Comicoro.ttf-de809c0b0193650f3db1fed3d5509dd7.fontdata"]
 
 [params]
 
