@@ -111,3 +111,4 @@ func _on_sfx_plus_pressed() -> void:
 func _notification(what: int) -> void:
 	if(what == NOTIFICATION_WM_CLOSE_REQUEST):
 		Global.save_data()
+	
