@@ -9,17 +9,15 @@ class_name MainMenu
 @onready var window_label: Label = %WindowLabel
 
 func _ready() -> void:
+	Global.load_data();
 	update_audio_bus_mute("SFX", sfx_label, Global.settings.sfx);
 	update_audio_bus_mute("Music", music_label, Global.settings.music);
-	update_fullscreen(Global.settings.fullscreen)
+	update_fullscreen(Global.settings.fullscreen);
 
 func update_audio_bus_mute(bus_name: String, label: Label, is_on: bool) -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_name), !is_on);
 	label.text = ("%s: %s" % [bus_name, "ON" if is_on else "OFF"]);
 
-func update_audio_bus_vol(bus_name: String, label: Label, vol: float) -> void:
-	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index(bus_name), vol);
- 
 func update_fullscreen(is_on : bool) -> void:
 	var mode =DisplayServer.WINDOW_MODE_FULLSCREEN if is_on else DisplayServer.WindowMode.WINDOW_MODE_WINDOWED;
 	DisplayServer.window_set_mode(mode)
@@ -44,6 +42,7 @@ func _on_settings_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	ui_sound.play();
+	Global.save_data();
 	get_tree().quit();
 
 """
@@ -51,14 +50,17 @@ Settings
 """
 func _on_music_button_pressed() -> void:
 	ui_sound.play();
+	Global.settings.music = not Global.settings.music;
 	update_audio_bus_mute("Music", music_label, Global.settings.music);
 
 func _on_sfx_button_pressed() -> void:
 	ui_sound.play();
+	Global.settings.sfx = not Global.settings.sfx;
 	update_audio_bus_mute("SFX", sfx_label, Global.settings.sfx);
 
 func _on_window_button_pressed() -> void:
 	ui_sound.play();
+	Global.settings.fullscreen = not Global.settings.fullscreen;
 	update_fullscreen(Global.settings.fullscreen)
 
 func _on_back_button_pressed() -> void:
@@ -71,7 +73,6 @@ func _on_back_button_pressed() -> void:
 
 func _on_music_minus_pressed() -> void:
 	ui_sound.play();
-	Global.settings.music_volume
 
 func _on_music_plus_pressed() -> void:
 	ui_sound.play();
@@ -81,3 +82,7 @@ func _on_sfx_minus_pressed() -> void:
 
 func _on_sfx_plus_pressed() -> void:
 	ui_sound.play();
+
+func _notification(what: int) -> void:
+	if(what == NOTIFICATION_WM_CLOSE_REQUEST):
+		Global.save_data();
