@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0c47ohvke3cj"]
+[gd_scene load_steps=18 format=3 uid="uid://c0c47ohvke3cj"]
 
 [ext_resource type="Script" uid="uid://bnad3c5tqv7rm" path="res://Scenes/UI/main_menu.gd" id="1_qwnig"]
 [ext_resource type="Shader" uid="uid://b08qjaig2dk16" path="res://shaders/BackGroun.gdshader" id="2_tfcbk"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://dtxh3s041i0kb" path="res://Extra/FONT_48.tres" id="4_tfcbk"]
 [ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://Assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="5_e2p27"]
 [ext_resource type="LabelSettings" uid="uid://dncjn445hyppc" path="res://Extra/FONT_16.tres" id="6_ngj32"]
+[ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://Assets/TopDownAssets/Sounds/select-a.ogg" id="7_gih0s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngj32"]
 shader = ExtResource("2_tfcbk")
@@ -15,9 +16,37 @@ shader_parameter/speed = 0.5
 atlas = ExtResource("5_e2p27")
 region = Rect2(112, 48, 48, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gih0s"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(112, 66, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k33u3"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(113, 49, 46, 14)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bm8t2"]
 atlas = ExtResource("5_e2p27")
 region = Rect2(176, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrjdf"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(176, 66, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqme5"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(177, 49, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jewm6"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(224, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cejvf"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(224, 66, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru8vt"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(225, 49, 14, 14)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -97,6 +126,8 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_ngj32")
+texture_pressed = SubResource("AtlasTexture_gih0s")
+texture_hover = SubResource("AtlasTexture_k33u3")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -131,6 +162,8 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_ngj32")
+texture_pressed = SubResource("AtlasTexture_gih0s")
+texture_hover = SubResource("AtlasTexture_k33u3")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -165,6 +198,8 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_ngj32")
+texture_pressed = SubResource("AtlasTexture_gih0s")
+texture_hover = SubResource("AtlasTexture_k33u3")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -188,9 +223,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 260.0
+offset_left = 270.0
 offset_top = -86.0
-offset_right = 615.0
+offset_right = 625.0
 offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -209,31 +244,98 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="MusicButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music"]
-custom_minimum_size = Vector2(180, 48)
+custom_minimum_size = Vector2(129, 50)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -24.0
-offset_right = 90.5
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_bm8t2")
+texture_pressed = SubResource("AtlasTexture_lrjdf")
+texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/MusicButton"]
+[node name="Music_Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/MusicButton"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "MUSIC"
+text = "MUSIC: ON"
+label_settings = ExtResource("6_ngj32")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_minus" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -22.0
+offset_right = -79.999985
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_jewm6")
+texture_pressed = SubResource("AtlasTexture_cejvf")
+texture_hover = SubResource("AtlasTexture_ru8vt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/music_minus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-"
+label_settings = ExtResource("6_ngj32")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_plus" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = -22.0
+offset_right = 125.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_jewm6")
+texture_pressed = SubResource("AtlasTexture_cejvf")
+texture_hover = SubResource("AtlasTexture_ru8vt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/music_plus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
 label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -243,31 +345,98 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="SFXButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX"]
-custom_minimum_size = Vector2(180, 48)
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
+offset_left = -75.0
 offset_top = -24.0
-offset_right = 90.5
-offset_bottom = 24.0
+offset_right = 75.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_bm8t2")
+texture_pressed = SubResource("AtlasTexture_lrjdf")
+texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/SFXButton"]
+[node name="SFX_Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/SFXButton"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "SFX"
+text = "SFX: ON"
+label_settings = ExtResource("6_ngj32")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx_minus" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -22.0
+offset_right = -79.999985
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_jewm6")
+texture_pressed = SubResource("AtlasTexture_cejvf")
+texture_hover = SubResource("AtlasTexture_ru8vt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/sfx_minus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-"
+label_settings = ExtResource("6_ngj32")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx_plus" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 80.5
+offset_top = -22.0
+offset_right = 125.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_jewm6")
+texture_pressed = SubResource("AtlasTexture_cejvf")
+texture_hover = SubResource("AtlasTexture_ru8vt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/sfx_plus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
 label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -277,24 +446,27 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="WindowButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Window"]
-custom_minimum_size = Vector2(180, 48)
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -24.0
-offset_right = 90.5
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_bm8t2")
+texture_pressed = SubResource("AtlasTexture_lrjdf")
+texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Window/WindowButton"]
+[node name="WindowLabel" type="Label" parent="SettingsButtons/VBoxContainer/Window/WindowButton"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -311,20 +483,22 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="BackButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Back"]
-custom_minimum_size = Vector2(180, 48)
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.5
-offset_top = -24.0
-offset_right = 90.5
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -25.0
+offset_right = 75.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_bm8t2")
+texture_pressed = SubResource("AtlasTexture_lrjdf")
+texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -340,10 +514,20 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="UI_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gih0s")
+bus = &"SFX"
+
+[connection signal="button_down" from="MainButtons/VBoxContainer/Play/PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/Play/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/Settings/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/Quit/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="SettingsButtons/VBoxContainer/Music/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="pressed" from="SettingsButtons/VBoxContainer/Music/music_minus" to="." method="_on_minus_pressed"]
+[connection signal="pressed" from="SettingsButtons/VBoxContainer/Music/music_minus" to="." method="_on_music_minus_pressed"]
+[connection signal="pressed" from="SettingsButtons/VBoxContainer/Music/music_plus" to="." method="_on_music_plus_pressed"]
 [connection signal="pressed" from="SettingsButtons/VBoxContainer/SFX/SFXButton" to="." method="_on_sfx_button_pressed"]
+[connection signal="pressed" from="SettingsButtons/VBoxContainer/SFX/sfx_minus" to="." method="_on_sfx_minus_pressed"]
+[connection signal="pressed" from="SettingsButtons/VBoxContainer/SFX/sfx_plus" to="." method="_on_sfx_plus_pressed"]
 [connection signal="pressed" from="SettingsButtons/VBoxContainer/Window/WindowButton" to="." method="_on_window_button_pressed"]
 [connection signal="pressed" from="SettingsButtons/VBoxContainer/Back/BackButton" to="." method="_on_back_button_pressed"]
