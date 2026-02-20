@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj3pml36gc1qc"]
+[gd_scene format=3 uid="uid://dj3pml36gc1qc"]
 
 [ext_resource type="PackedScene" uid="uid://bnn8r4vmt6vjy" path="res://Scenes/Player/player_base.tscn" id="1_k54n3"]
 [ext_resource type="Texture2D" uid="uid://ccab6or5n1nai" path="res://assets/TopDownAssets/Sprites/Players/tile_0000.png" id="2_8xusg"]
@@ -28,10 +28,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_8xusg")
+"texture": ExtResource("3_da5b7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_da5b7")
+"texture": ExtResource("2_8xusg")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_j7ddg")
@@ -43,7 +43,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7ddg"]
 
-[node name="PlayerDog" instance=ExtResource("1_k54n3")]
+[node name="PlayerDog" unique_id=923580134 instance=ExtResource("1_k54n3")]
 data = ExtResource("2_yhbja")
 
 [node name="Shadow" parent="Visuals" index="0"]
@@ -52,7 +52,7 @@ texture = ExtResource("2_j7ddg")
 [node name="AnimatedSprite2D" parent="Visuals" index="1"]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_k54n3")
-animation = &"idle"
+animation = &"move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
