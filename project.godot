@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 Transition="*res://Autoload/transition.tscn"
 Global="*res://Autoload/global.gd"
 Music="*res://Autoload/music.tscn"
+EventBus="*uid://gfvgxgwtsj6o"
 
 [display]
 

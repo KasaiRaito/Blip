@@ -18,7 +18,7 @@ func take_damage(value: float) -> void:
 		current_health = clamp(current_health , 0.0, max_helath)
 		on_unit_damage.emit(abs(value))
 		
-		if current_health == 0:
+		if current_health == 0.0:
 			die()
 
 func die() -> void:
