@@ -20,7 +20,7 @@ texture = ExtResource("2_kxl1r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=982596316]
 unique_name_in_owner = true
 position = Vector2(0, -12)
-animation = &"move"
+animation = &""
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718262409]

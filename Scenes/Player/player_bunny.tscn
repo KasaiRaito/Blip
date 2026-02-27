@@ -45,3 +45,4 @@ data = ExtResource("2_rw0qe")
 
 [node name="AnimatedSprite2D" parent="Visuals" parent_id_path=PackedInt32Array(2017909200) index="1" unique_id=982596316]
 sprite_frames = SubResource("SpriteFrames_fqkb5")
+animation = &"dead"
