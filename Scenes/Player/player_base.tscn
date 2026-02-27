@@ -1,19 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnn8r4vmt6vjy"]
+[gd_scene format=3 uid="uid://bnn8r4vmt6vjy"]
 
 [ext_resource type="Script" uid="uid://d0wb237vhun75" path="res://Scenes/Player/player.gd" id="1_jfsk2"]
+[ext_resource type="Resource" uid="uid://4qmutxra8j5a" path="res://Data/Player/player_base.tres" id="2_isex5"]
+[ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_kxl1r"]
 
-[node name="PlayerBase" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxl1r"]
+
+[node name="PlayerBase" type="CharacterBody2D" unique_id=200738549]
 script = ExtResource("1_jfsk2")
+data = ExtResource("2_isex5")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=2017909200]
 scale = Vector2(1.25, 1.25)
 
-[node name="Shadow" type="Sprite2D" parent="Visuals"]
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=54255787]
 scale = Vector2(1.2, 1)
+texture = ExtResource("2_kxl1r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=982596316]
 unique_name_in_owner = true
+position = Vector2(0, -12)
+animation = &"move"
+autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718262409]
+position = Vector2(1, -8)
+scale = Vector2(0.68, 0.56)
+shape = SubResource("CapsuleShape2D_kxl1r")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1614318113]

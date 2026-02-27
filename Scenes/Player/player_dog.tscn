@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bnn8r4vmt6vjy" path="res://Scenes/Player/player_base.tscn" id="1_k54n3"]
 [ext_resource type="Texture2D" uid="uid://ccab6or5n1nai" path="res://assets/TopDownAssets/Sprites/Players/tile_0000.png" id="2_8xusg"]
 [ext_resource type="Texture2D" uid="uid://cnttucjccgouq" path="res://assets/TopDownAssets/Sprites/Players/tile_0003.png" id="2_da5b7"]
-[ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_j7ddg"]
 [ext_resource type="Resource" uid="uid://bagrckj5hwhu6" path="res://Data/Player/player_dog.tres" id="2_yhbja"]
 [ext_resource type="Texture2D" uid="uid://cemiyrcpjly84" path="res://assets/TopDownAssets/Sprites/Players/tile_0001.png" id="3_da5b7"]
 [ext_resource type="Texture2D" uid="uid://cyey76bu4l4v5" path="res://assets/TopDownAssets/Sprites/Players/tile_0002.png" id="4_j7ddg"]
@@ -41,21 +40,8 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7ddg"]
-
 [node name="PlayerDog" unique_id=923580134 instance=ExtResource("1_k54n3")]
 data = ExtResource("2_yhbja")
 
-[node name="Shadow" parent="Visuals" index="0"]
-texture = ExtResource("2_j7ddg")
-
-[node name="AnimatedSprite2D" parent="Visuals" index="1"]
-position = Vector2(0, -12)
+[node name="AnimatedSprite2D" parent="Visuals" parent_id_path=PackedInt32Array(2017909200) index="1" unique_id=982596316]
 sprite_frames = SubResource("SpriteFrames_k54n3")
-animation = &"move"
-autoplay = "idle"
-
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1, -8)
-scale = Vector2(0.68, 0.5599989)
-shape = SubResource("CapsuleShape2D_j7ddg")

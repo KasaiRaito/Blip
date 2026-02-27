@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://y1cvp2lljux3"]
+
+[ext_resource type="Texture2D" uid="uid://b3ao4n36yvjd0" path="res://assets/TopDownAssets/Sprites/Players/tile_0008.png" id="1_3ctm8"]
+[ext_resource type="Script" uid="uid://dwvdivpjx8lsl" path="res://Data/Player/player_data.gd" id="2_gvb5s"]
+
+[resource]
+script = ExtResource("2_gvb5s")
+icon = ExtResource("1_3ctm8")
+id = "Mouse"
+metadata/_custom_type_script = "uid://dwvdivpjx8lsl"
