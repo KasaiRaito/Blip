@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0c47ohvke3cj"]
+[gd_scene format=3 uid="uid://c0c47ohvke3cj"]
 
 [ext_resource type="Script" uid="uid://bnad3c5tqv7rm" path="res://Scenes/UI/main_menu.gd" id="1_qwnig"]
 [ext_resource type="Shader" uid="uid://b08qjaig2dk16" path="res://shaders/BackGroun.gdshader" id="2_tfcbk"]
@@ -48,7 +48,7 @@ region = Rect2(224, 66, 16, 14)
 atlas = ExtResource("5_e2p27")
 region = Rect2(225, 49, 14, 14)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=2091035141]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qwnig")
 
-[node name="BackGroun" type="TextureRect" parent="."]
+[node name="BackGroun" type="TextureRect" parent="." unique_id=936073936]
 material = SubResource("ShaderMaterial_ngj32")
 layout_mode = 1
 anchors_preset = 15
@@ -68,7 +68,7 @@ grow_vertical = 2
 texture = ExtResource("2_yonvy")
 stretch_mode = 1
 
-[node name="Tittle" type="Label" parent="."]
+[node name="Tittle" type="Label" parent="." unique_id=50699205]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -83,7 +83,7 @@ label_settings = ExtResource("4_tfcbk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainButtons" type="Control" parent="."]
+[node name="MainButtons" type="Control" parent="." unique_id=1943500964]
 custom_minimum_size = Vector2(355, 220)
 layout_mode = 1
 anchors_preset = 8
@@ -98,7 +98,7 @@ offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons" unique_id=1526870700]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,11 +107,11 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Play" type="Control" parent="MainButtons/VBoxContainer"]
+[node name="Play" type="Control" parent="MainButtons/VBoxContainer" unique_id=348339741]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="PlayButton" type="TextureButton" parent="MainButtons/VBoxContainer/Play"]
+[node name="PlayButton" type="TextureButton" parent="MainButtons/VBoxContainer/Play" unique_id=979067273]
 custom_minimum_size = Vector2(180, 48)
 layout_mode = 1
 anchors_preset = 8
@@ -131,7 +131,7 @@ texture_hover = SubResource("AtlasTexture_k33u3")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Play/PlayButton"]
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Play/PlayButton" unique_id=1767359775]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,11 +143,11 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings" type="Control" parent="MainButtons/VBoxContainer"]
+[node name="Settings" type="Control" parent="MainButtons/VBoxContainer" unique_id=1295870294]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="SettingsButton" type="TextureButton" parent="MainButtons/VBoxContainer/Settings"]
+[node name="SettingsButton" type="TextureButton" parent="MainButtons/VBoxContainer/Settings" unique_id=996784410]
 custom_minimum_size = Vector2(180, 48)
 layout_mode = 1
 anchors_preset = 8
@@ -167,7 +167,7 @@ texture_hover = SubResource("AtlasTexture_k33u3")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Settings/SettingsButton"]
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Settings/SettingsButton" unique_id=1644942641]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,11 +179,11 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="Control" parent="MainButtons/VBoxContainer"]
+[node name="Quit" type="Control" parent="MainButtons/VBoxContainer" unique_id=1995918096]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="QuitButton" type="TextureButton" parent="MainButtons/VBoxContainer/Quit"]
+[node name="QuitButton" type="TextureButton" parent="MainButtons/VBoxContainer/Quit" unique_id=1856526401]
 custom_minimum_size = Vector2(180, 48)
 layout_mode = 1
 anchors_preset = 8
@@ -203,7 +203,7 @@ texture_hover = SubResource("AtlasTexture_k33u3")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Quit/QuitButton"]
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Quit/QuitButton" unique_id=1588232414]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -215,7 +215,7 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsButtons" type="Control" parent="."]
+[node name="SettingsButtons" type="Control" parent="." unique_id=1463286111]
 custom_minimum_size = Vector2(355, 220)
 layout_mode = 1
 anchors_preset = 8
@@ -230,7 +230,7 @@ offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsButtons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsButtons" unique_id=1589450238]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -239,11 +239,11 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Music" type="Control" parent="SettingsButtons/VBoxContainer"]
+[node name="Music" type="Control" parent="SettingsButtons/VBoxContainer" unique_id=1261408386]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="MusicButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music"]
+[node name="MusicButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music" unique_id=866531696]
 custom_minimum_size = Vector2(129, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -263,7 +263,7 @@ texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Music_Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/MusicButton"]
+[node name="Music_Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/MusicButton" unique_id=36272924]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -276,7 +276,7 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="music_minus" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music"]
+[node name="music_minus" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music" unique_id=1900368204]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 1
 anchors_preset = 8
@@ -296,7 +296,7 @@ texture_hover = SubResource("AtlasTexture_ru8vt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/music_minus"]
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/music_minus" unique_id=232900621]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,7 +308,7 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="music_plus" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music"]
+[node name="music_plus" type="TextureButton" parent="SettingsButtons/VBoxContainer/Music" unique_id=1455537077]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 1
 anchors_preset = 8
@@ -328,7 +328,7 @@ texture_hover = SubResource("AtlasTexture_ru8vt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/music_plus"]
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Music/music_plus" unique_id=1208826850]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -340,11 +340,11 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFX" type="Control" parent="SettingsButtons/VBoxContainer"]
+[node name="SFX" type="Control" parent="SettingsButtons/VBoxContainer" unique_id=1787224940]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="SFXButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX"]
+[node name="SFXButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX" unique_id=102326441]
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -364,7 +364,7 @@ texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="SFX_Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/SFXButton"]
+[node name="SFX_Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/SFXButton" unique_id=1817601306]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -377,7 +377,7 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="sfx_minus" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX"]
+[node name="sfx_minus" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX" unique_id=502000485]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 1
 anchors_preset = 8
@@ -397,7 +397,7 @@ texture_hover = SubResource("AtlasTexture_ru8vt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/sfx_minus"]
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/sfx_minus" unique_id=816730930]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -409,7 +409,7 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="sfx_plus" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX"]
+[node name="sfx_plus" type="TextureButton" parent="SettingsButtons/VBoxContainer/SFX" unique_id=661605510]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 1
 anchors_preset = 8
@@ -429,7 +429,7 @@ texture_hover = SubResource("AtlasTexture_ru8vt")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/sfx_plus"]
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/SFX/sfx_plus" unique_id=715867786]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -441,11 +441,11 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Window" type="Control" parent="SettingsButtons/VBoxContainer"]
+[node name="Window" type="Control" parent="SettingsButtons/VBoxContainer" unique_id=1285943487]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="WindowButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Window"]
+[node name="WindowButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Window" unique_id=740014378]
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -465,7 +465,7 @@ texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="WindowLabel" type="Label" parent="SettingsButtons/VBoxContainer/Window/WindowButton"]
+[node name="WindowLabel" type="Label" parent="SettingsButtons/VBoxContainer/Window/WindowButton" unique_id=1627397674]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -478,11 +478,11 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Back" type="Control" parent="SettingsButtons/VBoxContainer"]
+[node name="Back" type="Control" parent="SettingsButtons/VBoxContainer" unique_id=1066410565]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="BackButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Back"]
+[node name="BackButton" type="TextureButton" parent="SettingsButtons/VBoxContainer/Back" unique_id=1165692035]
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -502,7 +502,7 @@ texture_hover = SubResource("AtlasTexture_wqme5")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Back/BackButton"]
+[node name="Label" type="Label" parent="SettingsButtons/VBoxContainer/Back/BackButton" unique_id=431499019]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -514,7 +514,7 @@ label_settings = ExtResource("6_ngj32")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UI_Sound" type="AudioStreamPlayer" parent="."]
+[node name="UI_Sound" type="AudioStreamPlayer" parent="." unique_id=664519595]
 stream = ExtResource("7_gih0s")
 bus = &"SFX"
 

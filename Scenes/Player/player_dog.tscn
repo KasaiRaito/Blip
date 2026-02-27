@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bagrckj5hwhu6" path="res://Data/Player/player_dog.tres" id="2_yhbja"]
 [ext_resource type="Texture2D" uid="uid://cemiyrcpjly84" path="res://assets/TopDownAssets/Sprites/Players/tile_0001.png" id="3_da5b7"]
 [ext_resource type="Texture2D" uid="uid://cyey76bu4l4v5" path="res://assets/TopDownAssets/Sprites/Players/tile_0002.png" id="4_j7ddg"]
+[ext_resource type="PackedScene" uid="uid://clsqrar4g7x3j" path="res://Scenes/Weapons/Ranged/weapon_ranged_pistol.tscn" id="7_yhbja"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k54n3"]
 animations = [{
@@ -45,8 +46,6 @@ data = ExtResource("2_yhbja")
 
 [node name="AnimatedSprite2D" parent="Visuals" parent_id_path=PackedInt32Array(2017909200) index="1" unique_id=982596316]
 sprite_frames = SubResource("SpriteFrames_k54n3")
-animation = &"dead"
+animation = &"idle"
 
-[connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
-[connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]
-[connection signal="on_unit_heal" from="HealthComponent" to="." method="_on_health_component_on_unit_heal"]
+[node name="WeaponRangedPistol" parent="WeaponController" parent_id_path=PackedInt32Array(500209724) index="0" unique_id=1206941831 instance=ExtResource("7_yhbja")]

@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://4qmutxra8j5a" path="res://Data/Player/player_base.tres" id="2_isex5"]
 [ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_kxl1r"]
 [ext_resource type="Script" uid="uid://c0d0aiotcww18" path="res://Scenes/Components/health_component.gd" id="4_l7qia"]
+[ext_resource type="Script" uid="uid://dbd4fbg5wl6oo" path="res://Scenes/Player/weapon_controller.gd" id="5_pcgkm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxl1r"]
 
@@ -34,3 +35,11 @@ shape = SubResource("CapsuleShape2D_kxl1r")
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1173375576]
 script = ExtResource("4_l7qia")
 metadata/_custom_type_script = "uid://c0d0aiotcww18"
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=500209724]
+position = Vector2(1, -8)
+script = ExtResource("5_pcgkm")
+
+[connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
+[connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]
+[connection signal="on_unit_heal" from="HealthComponent" to="." method="_on_health_component_on_unit_heal"]
