@@ -1,9 +1,181 @@
 [gd_scene format=3 uid="uid://sjahkqjmrqau"]
 
-[node name="CharacterSelection" type="Control"]
+[ext_resource type="Script" uid="uid://bdtdiloeh82ju" path="res://Scenes/UI/character_selection.gd" id="1_aj0io"]
+[ext_resource type="PackedScene" uid="uid://bmvhj43rwj71o" path="res://Scenes/UI/SceneComponents/back_groun.tscn" id="1_c4n5n"]
+[ext_resource type="LabelSettings" uid="uid://dtxh3s041i0kb" path="res://Extra/FONT_48.tres" id="2_rhilo"]
+[ext_resource type="Script" uid="uid://dwvdivpjx8lsl" path="res://Data/Player/player_data.gd" id="3_oe7ax"]
+[ext_resource type="Resource" uid="uid://b8dk6lfhskhax" path="res://Data/Player/player_cat.tres" id="4_nwqkb"]
+[ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="5_vkfj6"]
+[ext_resource type="Resource" uid="uid://bagrckj5hwhu6" path="res://Data/Player/player_dog.tres" id="5_xv4yp"]
+[ext_resource type="LabelSettings" uid="uid://dncjn445hyppc" path="res://Extra/FONT_16.tres" id="6_aj0io"]
+[ext_resource type="Resource" uid="uid://y1cvp2lljux3" path="res://Data/Player/player_mouse.tres" id="6_pb1v1"]
+[ext_resource type="Resource" uid="uid://o30qulx2wtwv" path="res://Data/Player/player_bunny.tres" id="7_nwqkb"]
+[ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="8_pb1v1"]
+[ext_resource type="Resource" uid="uid://cdgnvix6y16mu" path="res://Data/Weapon/weapon_AK47.tres" id="9_r7boc"]
+[ext_resource type="Resource" uid="uid://ctl0jdeulcj7b" path="res://Data/Weapon/weapon_pistol.tres" id="10_oxayx"]
+[ext_resource type="Resource" uid="uid://csevptyjfyrj1" path="res://Data/Weapon/weapon_shotgun.tres" id="11_iibqf"]
+[ext_resource type="Resource" uid="uid://syektx4jvmxc" path="res://Data/Weapon/weapon_SMG.tres" id="12_thm5u"]
+[ext_resource type="Resource" uid="uid://dxrheaypb7klu" path="res://Data/Weapon/weapon_sniper.tres" id="13_8cin8"]
+[ext_resource type="Resource" uid="uid://di7rfjeu5orhv" path="res://Data/Weapon/weapon_tommy_gun.tres" id="14_jw73i"]
+[ext_resource type="Resource" uid="uid://bb43a0bigct68" path="res://Data/Weapon/weapon_uzi.tres" id="15_muiun"]
+[ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://assets/TopDownAssets/Sounds/select-a.ogg" id="19_iibqf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb1v1"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(80, 65, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrd2k"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(112, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe7ax"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(112, 66, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwqkb"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(113, 49, 46, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkfj6"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(176, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj0io"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(176, 66, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv4yp"]
+atlas = ExtResource("5_vkfj6")
+region = Rect2(177, 49, 46, 14)
+
+[node name="CharacterSelection" type="Control" unique_id=1710266789]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aj0io")
+selection_cursor = SubResource("AtlasTexture_pb1v1")
+players_array = Array[ExtResource("3_oe7ax")]([ExtResource("7_nwqkb"), ExtResource("4_nwqkb"), ExtResource("5_xv4yp"), ExtResource("6_pb1v1")])
+weapons_array = Array[ExtResource("8_pb1v1")]([ExtResource("9_r7boc"), ExtResource("10_oxayx"), ExtResource("11_iibqf"), ExtResource("12_thm5u"), ExtResource("13_8cin8"), ExtResource("14_jw73i"), ExtResource("15_muiun")])
+
+[node name="BackGroun" parent="." unique_id=1565211568 instance=ExtResource("1_c4n5n")]
+layout_mode = 1
+
+[node name="Title" type="Label" parent="." unique_id=564036588]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -226.5
+offset_top = 10.0
+offset_right = 226.5
+offset_bottom = 58.0
+grow_horizontal = 2
+text = "Character Selection"
+label_settings = ExtResource("2_rhilo")
+horizontal_alignment = 1
+
+[node name="PlayerContainer" type="HBoxContainer" parent="." unique_id=1035144538]
+custom_minimum_size = Vector2(450, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -90.0
+offset_right = 225.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="WeaponContainer" type="HBoxContainer" parent="." unique_id=157205893]
+custom_minimum_size = Vector2(450, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -5.0
+offset_right = 225.0
+offset_bottom = 75.00017
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Buttons" type="Control" parent="." unique_id=1814474534]
+custom_minimum_size = Vector2(350, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -70.0
+offset_right = 20.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayButton" type="TextureButton" parent="Buttons" unique_id=1103407738]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 1
+offset_right = 120.0
+offset_bottom = 60.0
+texture_normal = SubResource("AtlasTexture_rrd2k")
+texture_pressed = SubResource("AtlasTexture_oe7ax")
+texture_hover = SubResource("AtlasTexture_nwqkb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Buttons/PlayButton" unique_id=1503245062]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+label_settings = ExtResource("6_aj0io")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Buttons" unique_id=1647055490]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 60.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_vkfj6")
+texture_pressed = SubResource("AtlasTexture_aj0io")
+texture_hover = SubResource("AtlasTexture_xv4yp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Buttons/BackButton" unique_id=827660471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK"
+label_settings = ExtResource("6_aj0io")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI_Sound" type="AudioStreamPlayer" parent="." unique_id=682215059]
+stream = ExtResource("19_iibqf")
+bus = &"SFX"
+
+[connection signal="button_down" from="Buttons/BackButton" to="." method="_on_back_button_button_down"]

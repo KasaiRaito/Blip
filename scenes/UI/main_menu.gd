@@ -1,6 +1,8 @@
 extends Control
 class_name MainMenu
 
+@export var menu_cursor: Texture2D
+
 @onready var main_buttons: Control = $MainButtons
 @onready var settings_buttons: Control = $SettingsButtons
 @onready var ui_sound: AudioStreamPlayer = $UI_Sound
@@ -9,8 +11,11 @@ class_name MainMenu
 @onready var window_label: Label = %WindowLabel
 
 func _ready() -> void:
-	Global.load_data();
-	update_audio_bus_mute("SFX", sfx_label, Global.settings.sfx);
+	#Auto Load
+	Global.load_data()
+	Cursor.sprite.texture = menu_cursor
+	
+	update_audio_bus_mute("SFX", sfx_label, Global.settings.sfx)
 	update_audio_bus_mute("Music", music_label, Global.settings.music)
 	update_fullscreen(Global.settings.fullscreen)
 
@@ -40,13 +45,12 @@ func update_fullscreen(is_on : bool) -> void:
 """
 Main Menu
 """
-func _on_play_button_pressed() -> void:
-	ui_sound.play();
-	Transition.trnsition_to("res://Scenes/UI/character_selection.tscn")
-
+func _on_play_button_button_down() -> void:
+	ui_sound.play()
+	Transition.transition_to("res://Scenes/UI/character_selection.tscn")
 
 func _on_settings_button_pressed() -> void:
-	ui_sound.play();
+	ui_sound.play()
 	var tween := create_tween()
 	tween.tween_property(main_buttons, "global_position:y", 350.0, 0.2)
 	tween.tween_interval(0.1)
@@ -78,6 +82,7 @@ func _on_window_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	ui_sound.play()
+	Global.save_data()
 	var tween := create_tween()
 	tween.tween_property(settings_buttons, "global_position:x", 590.0, 0.3)
 	tween.tween_interval(0.1)

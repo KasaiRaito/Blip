@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvpfuyp81sfxp"]
+
+[ext_resource type="PackedScene" uid="uid://ccv06fja25gfo" path="res://Scenes/Weapons/Ranged/weapon_ranged_base.tscn" id="1_ndoh8"]
+[ext_resource type="Texture2D" uid="uid://d0unfm6gf7rj5" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0004.png" id="2_i8hw2"]
+
+[node name="WeaponRangedTommyGun" unique_id=1206941831 instance=ExtResource("1_ndoh8")]
+
+[node name="Sprite2D" parent="Pivot" parent_id_path=PackedInt32Array(307229707) index="0" unique_id=827192891]
+texture = ExtResource("2_i8hw2")
+
+[node name="Marker2D" parent="Pivot" parent_id_path=PackedInt32Array(307229707) index="1" unique_id=943253689]
+position = Vector2(21, -2)

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bkw36tmg7mc4g"]
+
+[ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="1_80ww4"]
+[ext_resource type="Texture2D" uid="uid://cqvwy8c5l0aod" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0001.png" id="2_gqtfn"]
+[ext_resource type="Script" uid="uid://dw2qbxyyj0u26" path="res://Scenes/UI/SceneComponents/weapon_card.gd" id="2_tunhe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k5wq"]
+atlas = ExtResource("1_80ww4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tunhe"]
+atlas = ExtResource("1_80ww4")
+region = Rect2(241, 1, 46, 46)
+
+[node name="WeaponCard" type="TextureButton" unique_id=935240697]
+texture_normal = SubResource("AtlasTexture_2k5wq")
+texture_pressed = SubResource("AtlasTexture_2k5wq")
+texture_hover = SubResource("AtlasTexture_tunhe")
+stretch_mode = 5
+script = ExtResource("2_tunhe")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1367100828]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_gqtfn")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=421363406]

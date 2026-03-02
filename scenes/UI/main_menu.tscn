@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://c0c47ohvke3cj"]
 
 [ext_resource type="Script" uid="uid://bnad3c5tqv7rm" path="res://Scenes/UI/main_menu.gd" id="1_qwnig"]
-[ext_resource type="Shader" uid="uid://b08qjaig2dk16" path="res://shaders/BackGroun.gdshader" id="2_tfcbk"]
-[ext_resource type="Texture2D" uid="uid://bjnh3sonwurje" path="res://assets/TopDownAssets/Sprites/background_tiled.png" id="2_yonvy"]
+[ext_resource type="PackedScene" uid="uid://bmvhj43rwj71o" path="res://Scenes/UI/SceneComponents/back_groun.tscn" id="3_4pqbp"]
 [ext_resource type="LabelSettings" uid="uid://dtxh3s041i0kb" path="res://Extra/FONT_48.tres" id="4_tfcbk"]
 [ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="5_e2p27"]
 [ext_resource type="LabelSettings" uid="uid://dncjn445hyppc" path="res://Extra/FONT_16.tres" id="6_ngj32"]
 [ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://assets/TopDownAssets/Sounds/select-a.ogg" id="7_gih0s"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngj32"]
-shader = ExtResource("2_tfcbk")
-shader_parameter/speed = 0.5
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypsd1"]
+atlas = ExtResource("5_e2p27")
+region = Rect2(80, 65, 15, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngj32"]
 atlas = ExtResource("5_e2p27")
@@ -56,17 +55,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qwnig")
+menu_cursor = SubResource("AtlasTexture_ypsd1")
 
-[node name="BackGroun" type="TextureRect" parent="." unique_id=936073936]
-material = SubResource("ShaderMaterial_ngj32")
+[node name="BackGroun" parent="." unique_id=1565211568 instance=ExtResource("3_4pqbp")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_yonvy")
-stretch_mode = 1
 
 [node name="Tittle" type="Label" parent="." unique_id=50699205]
 layout_mode = 1

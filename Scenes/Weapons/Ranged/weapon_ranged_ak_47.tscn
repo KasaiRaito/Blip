@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bweeqf142wfbv"]
+
+[ext_resource type="PackedScene" uid="uid://ccv06fja25gfo" path="res://Scenes/Weapons/Ranged/weapon_ranged_base.tscn" id="1_684tw"]
+[ext_resource type="Texture2D" uid="uid://bpa7uv0kkmria" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0005.png" id="2_ni46o"]
+[ext_resource type="Resource" uid="uid://cdgnvix6y16mu" path="res://Data/Weapon/weapon_AK47.tres" id="2_sryao"]
+
+[node name="WeaponRangedAK47" unique_id=1206941831 instance=ExtResource("1_684tw")]
+data = ExtResource("2_sryao")
+
+[node name="Sprite2D" parent="Pivot" parent_id_path=PackedInt32Array(307229707) index="0" unique_id=827192891]
+texture = ExtResource("2_ni46o")
+
+[node name="Marker2D" parent="Pivot" parent_id_path=PackedInt32Array(307229707) index="1" unique_id=943253689]
+position = Vector2(22, -2)

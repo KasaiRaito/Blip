@@ -25,6 +25,7 @@ Transition="*res://Autoload/transition.tscn"
 Global="*res://Autoload/global.gd"
 Music="*res://Autoload/music.tscn"
 EventBus="*uid://gfvgxgwtsj6o"
+Cursor="*uid://c5rviun2ipt4n"
 
 [display]
 

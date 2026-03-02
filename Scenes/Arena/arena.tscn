@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="1_b8w6q"]
 [ext_resource type="Script" uid="uid://boy5ydgggcov0" path="res://Scenes/Arena/arena.gd" id="1_qnyor"]
+[ext_resource type="Texture2D" uid="uid://b5o6og4r1humu" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0025.png" id="2_0ibrr"]
 [ext_resource type="Texture2D" uid="uid://ccab6or5n1nai" path="res://assets/TopDownAssets/Sprites/Players/tile_0000.png" id="2_fp5lk"]
 [ext_resource type="Texture2D" uid="uid://dxp7naqy4gvku" path="res://assets/TopDownAssets/Sprites/Interface/bar_under.png" id="3_t7yvt"]
 [ext_resource type="Texture2D" uid="uid://bvr7in7eey6cb" path="res://assets/TopDownAssets/Sprites/Interface/bar_over.png" id="4_11not"]
@@ -9,12 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://djtqrhxpxpjeg" path="res://assets/TopDownAssets/Sprites/Interface/bar_mana.png" id="6_11not"]
 [ext_resource type="PackedScene" uid="uid://dj3pml36gc1qc" path="res://Scenes/Player/player_dog.tscn" id="8_fsjwy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsjwy"]
+atlas = ExtResource("2_0ibrr")
+region = Rect2(2, 2, 20, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8w6q"]
 atlas = ExtResource("1_b8w6q")
 region = Rect2(48, 0, 48, 48)
 
 [node name="Arena" type="Node2D" unique_id=1447146577]
 script = ExtResource("1_qnyor")
+arena_curson = SubResource("AtlasTexture_fsjwy")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1150480895]
 

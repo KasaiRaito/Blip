@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmvhj43rwj71o"]
+
+[ext_resource type="Shader" uid="uid://b08qjaig2dk16" path="res://shaders/BackGroun.gdshader" id="1_01lpl"]
+[ext_resource type="Texture2D" uid="uid://bjnh3sonwurje" path="res://assets/TopDownAssets/Sprites/background_tiled.png" id="2_wltfo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngj32"]
+shader = ExtResource("1_01lpl")
+shader_parameter/speed = 0.5
+
+[node name="BackGroun" type="TextureRect" unique_id=1565211568]
+material = SubResource("ShaderMaterial_ngj32")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wltfo")
+stretch_mode = 1
