@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="1_d2o50"]
 [ext_resource type="Script" uid="uid://b68q4x0oexg0n" path="res://Scenes/UI/SceneComponents/player_card.gd" id="2_d2o50"]
 [ext_resource type="Texture2D" uid="uid://ccab6or5n1nai" path="res://assets/TopDownAssets/Sprites/Players/tile_0000.png" id="2_ki006"]
+[ext_resource type="AudioStream" uid="uid://dlyw3ke5ldgn7" path="res://assets/TopDownAssets/Sounds/button_hover.wav" id="4_1ewcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ewcf"]
 atlas = ExtResource("1_d2o50")
@@ -33,7 +34,12 @@ offset_right = 20.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("2_ki006")
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1064046540]
+stream = ExtResource("4_1ewcf")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

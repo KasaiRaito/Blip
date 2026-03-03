@@ -6,6 +6,7 @@ class_name MainMenu
 @onready var main_buttons: Control = $MainButtons
 @onready var settings_buttons: Control = $SettingsButtons
 @onready var ui_sound: AudioStreamPlayer = $UI_Sound
+@onready var hover_sound: AudioStreamPlayer = $HoverSound
 @onready var music_label: Label = %Music_Label
 @onready var sfx_label: Label = %SFX_Label
 @onready var window_label: Label = %WindowLabel
@@ -116,4 +117,6 @@ func _on_sfx_plus_pressed() -> void:
 func _notification(what: int) -> void:
 	if(what == NOTIFICATION_WM_CLOSE_REQUEST):
 		Global.save_data()
-	
+
+func on_button_mouse_entered() -> void:
+	hover_sound.play()

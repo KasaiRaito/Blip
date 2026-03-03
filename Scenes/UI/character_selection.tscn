@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://di7rfjeu5orhv" path="res://Data/Weapon/weapon_tommy_gun.tres" id="14_jw73i"]
 [ext_resource type="Resource" uid="uid://bb43a0bigct68" path="res://Data/Weapon/weapon_uzi.tres" id="15_muiun"]
 [ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://assets/TopDownAssets/Sounds/select-a.ogg" id="19_iibqf"]
+[ext_resource type="AudioStream" uid="uid://dlyw3ke5ldgn7" path="res://assets/TopDownAssets/Sounds/button_hover.wav" id="20_thm5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb1v1"]
 atlas = ExtResource("5_vkfj6")
@@ -178,5 +179,11 @@ vertical_alignment = 1
 stream = ExtResource("19_iibqf")
 bus = &"SFX"
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1380073463]
+stream = ExtResource("20_thm5u")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Buttons/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="button_down" from="Buttons/BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="mouse_entered" from="Buttons/BackButton" to="." method="_on_back_button_mouse_entered"]

@@ -26,6 +26,7 @@ Global="*res://Autoload/global.gd"
 Music="*res://Autoload/music.tscn"
 EventBus="*uid://gfvgxgwtsj6o"
 Cursor="*uid://c5rviun2ipt4n"
+DampedOscillator="*uid://bkqabubjo4g5a"
 
 [display]
 
@@ -39,6 +40,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Blip"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/DampedOscillator/plugin.cfg")
 
 [input]
 

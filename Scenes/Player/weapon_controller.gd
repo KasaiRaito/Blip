@@ -8,6 +8,13 @@ func _process(delta: float) -> void:
 	target_position = get_global_mouse_position()
 	rotate_weapon()
 
+func equip_weapon() -> void:
+	var weapon: Weapon = Global.get_weapon().instantiate()
+	#weapon.global_position = Vector2(1.0,-8.0)
+	current_weapon = weapon
+	current_weapon.data = Global.selected_weapon
+	add_child(weapon)
+
 func rotate_weapon() -> void:
 	if not current_weapon:
 		return
