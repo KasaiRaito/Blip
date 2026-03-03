@@ -8,6 +8,32 @@ var settings: Dictionary = {
 	"fullscreen": false,
 }
 
+var all_players: Dictionary[String, PackedScene] = {
+	"Bunny": preload("uid://ca44h6vx2qafq"),
+	"Cat": preload("uid://cqpyuvui23hle"),
+	"Dog": preload("uid://dj3pml36gc1qc"),
+	"Mouse": preload("uid://dtfh5yr33y3ud")
+}
+
+var all_weapons: Dictionary[String, PackedScene] = {
+	"AK-47": preload("uid://bweeqf142wfbv"),
+	"Pistol": preload("uid://clsqrar4g7x3j"),
+	"Shotgun": preload("uid://8pfy0oue2gwq"),
+	"SMG": preload("uid://q82m3cyofnoq"),
+	"Sniper": preload("uid://6yvqnnusp6k6"),
+	"Tommy Gun": preload("uid://dvpfuyp81sfxp"),
+	"Uzi": preload("uid://btjot64kxelv2"),
+}
+
+var selected_player: PlayerData
+var selected_weapon: WeaponData
+
+func get_player() -> PackedScene:
+	return all_players[selected_player.id]
+
+func get_weapon() -> PackedScene:
+	return all_weapons[selected_weapon.weapon_name]
+
 func save_data() -> void:
 	var save = settings.duplicate()
 	

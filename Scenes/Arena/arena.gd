@@ -12,6 +12,11 @@ func _ready() -> void:
 	
 	EventBus.on_player_health_change.connect(_on_player_health_change)
 	#EventBus.on_player_death.connect(_on_plauer_death)
+	load_game_selection()
+
+func load_game_selection() -> void:
+	var player = Global.get_player().instantiate()
+	add_child(player)
 
 func _on_player_health_change(current_health : float, max_health : float) -> void:
 	health_bar.value = (current_health / max_health)

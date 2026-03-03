@@ -178,4 +178,5 @@ vertical_alignment = 1
 stream = ExtResource("19_iibqf")
 bus = &"SFX"
 
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="button_down" from="Buttons/BackButton" to="." method="_on_back_button_button_down"]
