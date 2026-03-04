@@ -12,4 +12,5 @@ cooldown = 0.8
 shoot_cost = 3
 spread = 10.0
 bullet_speed = 200.0
+description = "Powerfull shotgun"
 metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

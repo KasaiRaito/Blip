@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://kbmfg3g2yc0m"]
+
+[ext_resource type="Script" uid="uid://br6wck17sjadg" path="res://Scenes/UI/SceneComponents/description_panel.gd" id="1_pqwsq"]
+[ext_resource type="Texture2D" uid="uid://c5vwsotmmnflp" path="res://assets/TopDownAssets/Sprites/Interface/itembg.png" id="2_f0o31"]
+[ext_resource type="LabelSettings" uid="uid://dncjn445hyppc" path="res://Extra/FONT_16.tres" id="3_j88ne"]
+
+[node name="DescriptionPanel" type="Control" unique_id=161981712]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqwsq")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1999708231]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_f0o31")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Label" type="Label" parent="NinePatchRect" unique_id=1222620076]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST TEXT LABEL TEST TEXT LABEL TEST TEXT LABEL TEST TEXT LABEL"
+label_settings = ExtResource("3_j88ne")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

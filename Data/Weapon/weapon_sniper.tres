@@ -11,4 +11,5 @@ damage = 3.0
 cooldown = 2.0
 spread = 10.0
 bullet_speed = 250.0
+description = "Slow high power weapon"
 metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

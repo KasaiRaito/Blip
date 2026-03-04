@@ -10,4 +10,5 @@ icon = ExtResource("1_j404v")
 cooldown = 0.4
 spread = 5.0
 bullet_speed = 250.0
+description = "Basic balanced gun"
 metadata/_custom_type_script = "uid://vdcpdk6x6ppo"
