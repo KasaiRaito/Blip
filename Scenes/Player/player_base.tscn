@@ -6,6 +6,24 @@
 [ext_resource type="Script" uid="uid://c0d0aiotcww18" path="res://Scenes/Components/health_component.gd" id="4_l7qia"]
 [ext_resource type="Script" uid="uid://dbd4fbg5wl6oo" path="res://Scenes/Player/weapon_controller.gd" id="5_pcgkm"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtsbd"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move",
+"speed": 6.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxl1r"]
 
 [node name="PlayerBase" type="CharacterBody2D" unique_id=200738549]
@@ -22,7 +40,8 @@ texture = ExtResource("2_kxl1r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=982596316]
 unique_name_in_owner = true
 position = Vector2(0, -12)
-animation = &""
+sprite_frames = SubResource("SpriteFrames_vtsbd")
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718262409]
