@@ -128,8 +128,12 @@ grow_vertical = 0
 [node name="PlayButton" type="TextureButton" parent="Buttons" unique_id=1103407738]
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 1
-offset_right = 120.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
 offset_bottom = 60.0
+grow_horizontal = 0
 texture_normal = SubResource("AtlasTexture_rrd2k")
 texture_pressed = SubResource("AtlasTexture_oe7ax")
 texture_hover = SubResource("AtlasTexture_nwqkb")
@@ -151,12 +155,8 @@ vertical_alignment = 1
 [node name="BackButton" type="TextureButton" parent="Buttons" unique_id=1647055490]
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -120.0
+offset_right = 120.0
 offset_bottom = 60.0
-grow_horizontal = 0
 texture_normal = SubResource("AtlasTexture_vkfj6")
 texture_pressed = SubResource("AtlasTexture_aj0io")
 texture_hover = SubResource("AtlasTexture_xv4yp")
