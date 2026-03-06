@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://syektx4jvmxc"]
 
 [ext_resource type="Texture2D" uid="uid://cgch73n7h4u3r" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0006.png" id="1_87msn"]
+[ext_resource type="PackedScene" uid="uid://blticeywwtswe" path="res://Scenes/Weapons/Ranged/Bullets/bullet_smg.tscn" id="1_ihbex"]
 [ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="2_ihbex"]
 
 [resource]
@@ -11,5 +12,6 @@ damage = 0.3
 cooldown = 0.1
 spread = 7.0
 bullet_speed = 250.0
+bullet_scene = ExtResource("1_ihbex")
 description = "Fast low damage gun"
 metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

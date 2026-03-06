@@ -14,8 +14,7 @@ func init_health(value: float) -> void:
 
 func take_damage(value: float) -> void:
 	if current_health > 0:
-		current_health -= abs(value)
-		current_health = clamp(current_health , 0.0, max_helath)
+		current_health = clamp(current_health - abs(value) , 0.0, max_helath)
 		on_unit_damage.emit(abs(value))
 		
 		if current_health == 0.0:
@@ -28,6 +27,5 @@ func heal(value: float) -> void:
 	if current_health >= max_helath:
 		return
 	
-	current_health += abs(value)
-	current_health = clamp(current_health , 0.0, max_helath)
+	current_health = clamp(current_health + abs(value) , 0.0, max_helath)
 	on_unit_heal.emit(value)

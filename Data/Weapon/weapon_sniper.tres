@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dxrheaypb7klu"]
 
 [ext_resource type="Texture2D" uid="uid://b3162fce4jytf" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0003.png" id="1_bdw6k"]
+[ext_resource type="PackedScene" uid="uid://bn6ye0amwxx6t" path="res://Scenes/Weapons/Ranged/Bullets/bullet_sniper.tscn" id="1_lgflv"]
 [ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="2_lgflv"]
 
 [resource]
@@ -11,5 +12,6 @@ damage = 3.0
 cooldown = 2.0
 spread = 10.0
 bullet_speed = 250.0
+bullet_scene = ExtResource("1_lgflv")
 description = "Slow high power weapon"
 metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

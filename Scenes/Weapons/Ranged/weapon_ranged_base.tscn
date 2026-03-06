@@ -12,7 +12,8 @@ script = ExtResource("1_4axqq")
 unique_name_in_owner = true
 position = Vector2(12, 0)
 
-[node name="Marker2D" type="Marker2D" parent="Pivot" unique_id=943253689]
+[node name="FirePosition" type="Marker2D" parent="Pivot" unique_id=943253689]
+unique_name_in_owner = true
 position = Vector2(18, -0.5)
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=1527809085]

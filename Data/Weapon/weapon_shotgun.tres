@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://csevptyjfyrj1"]
 
+[ext_resource type="PackedScene" uid="uid://bvooyd7watudl" path="res://Scenes/Weapons/Ranged/Bullets/bullet_shootgun.tscn" id="1_k7gap"]
 [ext_resource type="Texture2D" uid="uid://bbv84wvnnbldm" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0007.png" id="1_u51c4"]
 [ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="2_k7gap"]
 
@@ -12,5 +13,6 @@ cooldown = 0.8
 shoot_cost = 3
 spread = 10.0
 bullet_speed = 200.0
+bullet_scene = ExtResource("1_k7gap")
 description = "Powerfull shotgun"
 metadata/_custom_type_script = "uid://vdcpdk6x6ppo"
