@@ -30,9 +30,8 @@ func use_weapon() -> void:
 	slash_particle.global_rotation = pivot.global_rotation
 	slash_particle.emitting = true
 	
-	print(entities)
-	
-	#for other Node2D: entities:
+	for other: Node2D in entities:
+		Global.create_damage_text(data.damage * 10, other.global_position)
 
 func _on_cooldown_timeout() -> void:
 	can_use = true

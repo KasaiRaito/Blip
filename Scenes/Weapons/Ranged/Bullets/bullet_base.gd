@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	Global.create_explosion(global_position)
+	Global.create_damage_text(data.damage * 10, body.global_position)
 	queue_free()
-	
