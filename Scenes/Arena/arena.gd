@@ -51,7 +51,24 @@ func generate_level_layout() -> void:
 
 
 func select_special_rooms() -> void:
-	pass
+	start_room_coord = Vector2i.ZERO
+	end_room_coord = find_farthest_room()
+	
+	print("START: %s" % start_room_coord)
+	print("END: %s" % end_room_coord)
+	
+
+func find_farthest_room() -> Vector2i:
+	var farthest_room_coord: Vector2i = start_room_coord
+	var max_dist: = 0.0
+
+	for room_coord: Vector2i in grid.keys():
+		var dist = start_room_coord.distance_to(room_coord)
+		if dist > max_dist:
+			max_dist = dist
+			farthest_room_coord = room_coord
+	
+	return farthest_room_coord
 
 func load_game_selection() -> void:
 	var player: Player = Global.get_player().instantiate()
