@@ -27,6 +27,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxl1r"]
 
 [node name="PlayerBase" type="CharacterBody2D" unique_id=200738549]
+collision_layer = 2
 script = ExtResource("1_jfsk2")
 data = ExtResource("2_isex5")
 

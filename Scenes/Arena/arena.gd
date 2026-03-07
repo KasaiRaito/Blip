@@ -12,10 +12,14 @@ var start_room_coord: Vector2i
 var end_room_coord: Vector2i
 var grid_cell_size: Vector2i
 
+var player: Player
+var current_room: LevelRoom
+
 func _ready() -> void:
 	#Autoload
 	Cursor.sprite.texture = arena_curson
 	EventBus.on_player_health_change.connect(_on_player_health_change)
+	EventBus.on_player_room_entered.connect(_on_player_room_entered)
 	
 	grid_cell_size = Vector2i(
 		level_data.room_size.x + level_data.corridor_size.x,
@@ -28,6 +32,14 @@ func _ready() -> void:
 	create_corridors()
 	load_game_selection()
 	
+	var first_room: LevelRoom = grid[Vector2i.ZERO]
+	first_room.is_cleared = true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		current_room.unluck_room()
+		current_room.is_cleared = true
+
 func generate_level_layout() -> void:
 	grid.clear()
 	print("Create layout...")
@@ -122,10 +134,16 @@ func load_game_selection() -> void:
 	var first_room: LevelRoom = grid[Vector2i.ZERO]
 	var spawn_position: Marker2D = first_room.player_spawn_position
 	
-	var player: Player = Global.get_player().instantiate()
+	player = Global.get_player().instantiate()
 	add_child(player)
 	player.global_position = spawn_position.global_position
 	player.weapon_controller.equip_weapon()
 
 func _on_player_health_change(current_health : float, max_health : float) -> void:
 	health_bar.value = (current_health / max_health)
+
+func _on_player_room_entered(room: LevelRoom) -> void:
+	current_room = room
+	print(room)
+	if not room.is_cleared:
+		room.lock_room()
