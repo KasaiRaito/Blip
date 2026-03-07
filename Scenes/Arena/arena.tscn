@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvr7in7eey6cb" path="res://assets/TopDownAssets/Sprites/Interface/bar_over.png" id="4_11not"]
 [ext_resource type="Texture2D" uid="uid://cf2ypr83psjfm" path="res://assets/TopDownAssets/Sprites/Interface/bar_health.png" id="5_qnyor"]
 [ext_resource type="Texture2D" uid="uid://djtqrhxpxpjeg" path="res://assets/TopDownAssets/Sprites/Interface/bar_mana.png" id="6_11not"]
+[ext_resource type="Texture2D" uid="uid://clv0dnuyxhqg8" path="res://assets/TopDownAssets/Sprites/Interface/Button_Blue.png" id="9_0ibrr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsjwy"]
 atlas = ExtResource("2_0ibrr")
@@ -16,6 +17,9 @@ region = Rect2(2, 2, 20, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8w6q"]
 atlas = ExtResource("1_b8w6q")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgwd8"]
+size = Vector2(46, 46)
 
 [node name="Arena" type="Node2D" unique_id=1447146577]
 script = ExtResource("1_qnyor")
@@ -91,3 +95,36 @@ stretch_margin_bottom = 2
 texture_under = ExtResource("3_t7yvt")
 texture_over = ExtResource("4_11not")
 texture_progress = ExtResource("6_11not")
+
+[node name="EnemyBoddy" type="StaticBody2D" parent="." unique_id=581995004]
+position = Vector2(209, 77)
+collision_layer = 5
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBoddy" unique_id=1209238276]
+texture = ExtResource("9_0ibrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBoddy" unique_id=1658093049]
+shape = SubResource("RectangleShape2D_vgwd8")
+
+[node name="EnemyBoddy2" type="StaticBody2D" parent="." unique_id=595730602]
+position = Vector2(159, 27)
+collision_layer = 5
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBoddy2" unique_id=471726848]
+texture = ExtResource("9_0ibrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBoddy2" unique_id=1689872298]
+shape = SubResource("RectangleShape2D_vgwd8")
+
+[node name="EnemyBoddy3" type="StaticBody2D" parent="." unique_id=777394109]
+position = Vector2(159, 127)
+collision_layer = 5
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBoddy3" unique_id=1769679028]
+texture = ExtResource("9_0ibrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBoddy3" unique_id=1017204587]
+shape = SubResource("RectangleShape2D_vgwd8")

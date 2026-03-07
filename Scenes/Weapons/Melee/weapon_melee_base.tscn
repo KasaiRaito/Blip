@@ -183,4 +183,6 @@ bus = &"SFX"
 
 [node name="Cooldown" type="Timer" parent="." unique_id=175984370]
 
+[connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Pivot/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

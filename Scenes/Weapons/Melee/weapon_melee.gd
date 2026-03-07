@@ -8,6 +8,7 @@ class_name WeaponMelee
 @onready var cooldown: Timer = $Cooldown
 
 var can_use: bool = true
+var entities: Array[Node2D]
 var direction: Vector2
 
 
@@ -28,6 +29,10 @@ func use_weapon() -> void:
 	
 	slash_particle.global_rotation = pivot.global_rotation
 	slash_particle.emitting = true
+	
+	print(entities)
+	
+	#for other Node2D: entities:
 
 func _on_cooldown_timeout() -> void:
 	can_use = true
@@ -36,3 +41,13 @@ func _on_cooldown_timeout() -> void:
 func rotate_weapon() -> void:
 	direction = get_global_mouse_position() - global_position
 	sprite.flip_v = (direction.x < 0)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if is_instance_valid(body):
+		entities.append(body)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if is_instance_valid(body):
+		entities.erase(body)

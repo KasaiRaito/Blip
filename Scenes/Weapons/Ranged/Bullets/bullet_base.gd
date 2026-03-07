@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 	move_local_x(data.bullet_speed * delta)
 
 func _on_body_entered(body: Node2D) -> void:
+	Global.create_explosion(global_position)
 	queue_free()
 	
