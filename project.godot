@@ -19,6 +19,10 @@ run/main_scene="uid://c0c47ohvke3cj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Extra/default_bus_layout.tres"
+
 [autoload]
 
 Transition="*res://Autoload/transition.tscn"
