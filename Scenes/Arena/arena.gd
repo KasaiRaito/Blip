@@ -65,9 +65,6 @@ func generate_level_layout() -> void:
 		if not grid.has(next_coord):
 			grid[next_coord] = null
 		
-	
-	for key: Vector2i in grid.keys():
-		print(key)
 
 func create_rooms() -> void:
 	print("Creating rooms...")
@@ -75,6 +72,8 @@ func create_rooms() -> void:
 		var room_instance: LevelRoom = level_data.room_scene.instantiate()
 		room_instance.position = room_coord * grid_cell_size
 		add_child(room_instance)
+		
+		room_instance.create_props(level_data)
 		
 		grid[room_coord] = room_instance
 		connect_rooms(room_coord, room_instance)
@@ -114,10 +113,6 @@ func connect_rooms(room_coord: Vector2i, room_instance: LevelRoom) -> void:
 func select_special_rooms() -> void:
 	start_room_coord = Vector2i.ZERO
 	end_room_coord = find_farthest_room()
-	
-	print("START: %s" % start_room_coord)
-	print("END: %s" % end_room_coord)
-	
 
 func find_farthest_room() -> Vector2i:
 	var farthest_room_coord: Vector2i = start_room_coord

@@ -11,5 +11,9 @@ class_name LevelData
 
 @export var min_enemies_per_room: = 5
 @export var max_enemies_per_room: = 10
+
+@export var max_props_per_room: = 5
+@export var props: Array[PackedScene]
+
 @export var enemy_scenes: Array[PackedScene]
 @export var store_data: Array[LevelStoreData]

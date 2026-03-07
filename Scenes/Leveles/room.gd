@@ -30,6 +30,16 @@ func reister_tiles() -> void:
 	for tile in tile_data.get_used_cells():
 		tiles.append(tile)
 
+func create_props(data: LevelData) -> void:
+	var prop_count = randi_range(0, data.max_props_per_room)
+	for i in prop_count:
+		var tile_coord: Vector2i = tiles.pick_random()
+		var tile_pos: Vector2i = tile_data.map_to_local(tile_coord)
+		var random_prop: PackedScene = data.props.pick_random()
+		var instance: Area2D = random_prop.instantiate()
+		instance.position = tile_pos
+		add_child(instance)
+
 func lock_room() -> void:
 	for direction in clear_door_nodes:
 		var wall_door = room_walls[direction]
