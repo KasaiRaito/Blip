@@ -54,5 +54,4 @@ func _on_health_component_on_unit_heal(amount: float) -> void:
 
 #TEST FUNCTIONS
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		health_component.take_damage(1)
+	pass
