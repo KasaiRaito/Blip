@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cf2ypr83psjfm" path="res://assets/TopDownAssets/Sprites/Interface/bar_health.png" id="5_qnyor"]
 [ext_resource type="Texture2D" uid="uid://djtqrhxpxpjeg" path="res://assets/TopDownAssets/Sprites/Interface/bar_mana.png" id="6_11not"]
 [ext_resource type="Script" uid="uid://blomko75vxock" path="res://Scenes/Arena/map_controller.gd" id="10_vgwd8"]
+[ext_resource type="Texture2D" uid="uid://c5vwsotmmnflp" path="res://assets/TopDownAssets/Sprites/Interface/itembg.png" id="11_xt8pn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsjwy"]
 atlas = ExtResource("2_0ibrr")
@@ -107,3 +108,13 @@ offset_right = -5.0
 offset_bottom = 125.0
 grow_horizontal = 0
 script = ExtResource("10_vgwd8")
+
+[node name="TextureRect" type="TextureRect" parent="UI/MapController" unique_id=1279593847]
+self_modulate = Color(1, 1, 1, 0.09803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_xt8pn")

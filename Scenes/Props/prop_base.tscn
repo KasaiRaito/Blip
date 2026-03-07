@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://xayqmgs5fjaf"]
+
+[ext_resource type="Texture2D" uid="uid://b6i0q5i8rwf7l" path="res://assets/TopDownAssets/Sprites/Tiles/tilemap_packed.png" id="1_2tqh4"]
+[ext_resource type="Script" uid="uid://cwumnkf4ymvx2" path="res://Scenes/Props/prop.gd" id="1_3pnrl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqjgg"]
+atlas = ExtResource("1_2tqh4")
+region = Rect2(48, 33, 16, 14)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pnrl"]
+radius = 7.0
+height = 14.0
+
+[node name="PropBase" type="Area2D" unique_id=1873424515]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3pnrl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=301577995]
+texture = SubResource("AtlasTexture_pqjgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373131141]
+shape = SubResource("CapsuleShape2D_3pnrl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
