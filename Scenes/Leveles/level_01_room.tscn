@@ -49,3 +49,6 @@ tile_set = ExtResource("2_qag2s")
 [node name="Wall_W" type="TileMapLayer" parent="Walls2" unique_id=1920085539]
 tile_map_data = PackedByteArray("AAD0//z/AAAAAAEAAAD0//3/AAAAAAEAAAD0//7/AAAAAAEAAAD0////AAAAAAEAAAD0/wAAAAAAAAEAAAD0/wEAAAAAAAEAAAD0/wIAAAAAAAEAAAD1//z/AAACAAEAAAD1//3/AAACAAEAAAD1//7/AAACAAEAAAD1////AAACAAEAAAD1/wAAAAACAAEAAAD1/wEAAAACAAEAAAD1/wIAAAACAAEAAAA=")
 tile_set = ExtResource("2_qag2s")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=403869516]
+position = Vector2(-192, -208)
