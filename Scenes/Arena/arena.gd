@@ -10,17 +10,23 @@ class_name Arena
 var grid: Dictionary[Vector2i, LevelRoom] = {}
 var start_room_coord: Vector2i
 var end_room_coord: Vector2i
+var grid_cell_size: Vector2i
 
 func _ready() -> void:
 	#Autoload
 	Cursor.sprite.texture = arena_curson
-	
 	EventBus.on_player_health_change.connect(_on_player_health_change)
+	
+	grid_cell_size = Vector2i(
+		level_data.room_size.x + level_data.corridor_size.x,
+		level_data.room_size.y + level_data.corridor_size.y,
+	)
 	
 	generate_level_layout()
 	select_special_rooms()
 	create_rooms()
-	#load_game_selection()
+	create_corridors()
+	load_game_selection()
 	
 func generate_level_layout() -> void:
 	grid.clear()
@@ -54,13 +60,35 @@ func create_rooms() -> void:
 	print("Creating rooms...")
 	for room_coord: Vector2i in grid.keys():
 		var room_instance: LevelRoom = level_data.room_scene.instantiate()
-		room_instance.position = room_coord * level_data.room_size
+		room_instance.position = room_coord * grid_cell_size
 		add_child(room_instance)
 		
 		grid[room_coord] = room_instance
 		connect_rooms(room_coord, room_instance)
+
+func create_corridors() -> void:
+	print("Creating corridors...")
+	for room_coords: Vector2i in grid.keys():
+		var room_instance: LevelRoom = grid[room_coords]
 		
-		await get_tree().create_timer(0.5).timeout
+		# Side Conection
+		var right_neighbor = room_coords + Vector2i.RIGHT
+		if(grid.has(right_neighbor)):
+			var corridor: Node2D = level_data.h_corridor.instantiate()
+			
+			corridor.position = room_instance.position + Vector2(
+				grid_cell_size.x / 2.0, 0)
+			add_child(corridor)
+		
+		# Vectical Conection
+		var down_neighbor = room_coords + Vector2i.DOWN
+		if(grid.has(down_neighbor)):
+			var corridor: Node2D = level_data.v_corridor.instantiate()
+			
+			corridor.position = room_instance.position + Vector2(
+				0, grid_cell_size.y / 2.0)
+			add_child(corridor)
+		
 
 func connect_rooms(room_coord: Vector2i, room_instance: LevelRoom) -> void:
 	var directions: = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
@@ -91,8 +119,12 @@ func find_farthest_room() -> Vector2i:
 	return farthest_room_coord
 
 func load_game_selection() -> void:
+	var first_room: LevelRoom = grid[Vector2i.ZERO]
+	var spawn_position: Marker2D = first_room.player_spawn_position
+	
 	var player: Player = Global.get_player().instantiate()
 	add_child(player)
+	player.global_position = spawn_position.global_position
 	player.weapon_controller.equip_weapon()
 
 func _on_player_health_change(current_health : float, max_health : float) -> void:
