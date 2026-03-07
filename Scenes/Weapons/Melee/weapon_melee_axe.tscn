@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://5cv2hdbdoe3a"]
+
+[ext_resource type="PackedScene" uid="uid://l7g536e3tk4i" path="res://Scenes/Weapons/Melee/weapon_melee_base.tscn" id="1_7gg0w"]
+[ext_resource type="Resource" uid="uid://joqhwirw7gwx" path="res://Data/Weapon/weapon_axe.tres" id="2_4gqui"]
+[ext_resource type="Texture2D" uid="uid://hm683tll4af4" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0009.png" id="2_gnduc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gqui"]
+size = Vector2(29, 42)
+
+[node name="WeaponMeleeAxe" unique_id=83204622 instance=ExtResource("1_7gg0w")]
+data = ExtResource("2_4gqui")
+
+[node name="Sprite2D" parent="Pivot" parent_id_path=PackedInt32Array(1148500278) index="0" unique_id=718032849]
+texture = ExtResource("2_gnduc")
+
+[node name="CollisionShape2D" parent="Pivot/Area2D" parent_id_path=PackedInt32Array(173161814) index="0" unique_id=593235751]
+position = Vector2(17, 0)
+shape = SubResource("RectangleShape2D_4gqui")

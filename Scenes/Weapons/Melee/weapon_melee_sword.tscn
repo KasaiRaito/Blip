@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dssi24ha6byf5"]
+
+[ext_resource type="PackedScene" uid="uid://l7g536e3tk4i" path="res://Scenes/Weapons/Melee/weapon_melee_base.tscn" id="1_qvy6j"]
+[ext_resource type="Resource" uid="uid://1ps47x4oeiku" path="res://Data/Weapon/weapon_sword.tres" id="2_ppdpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppdpt"]
+size = Vector2(26, 30)
+
+[node name="WeaponMeleeSword" unique_id=83204622 instance=ExtResource("1_qvy6j")]
+data = ExtResource("2_ppdpt")
+
+[node name="CollisionShape2D" parent="Pivot/Area2D" parent_id_path=PackedInt32Array(173161814) index="0" unique_id=593235751]
+shape = SubResource("RectangleShape2D_ppdpt")

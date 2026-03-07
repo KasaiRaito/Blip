@@ -18,6 +18,8 @@
 [ext_resource type="Resource" uid="uid://dxrheaypb7klu" path="res://Data/Weapon/weapon_sniper.tres" id="13_8cin8"]
 [ext_resource type="Resource" uid="uid://di7rfjeu5orhv" path="res://Data/Weapon/weapon_tommy_gun.tres" id="14_jw73i"]
 [ext_resource type="Resource" uid="uid://bb43a0bigct68" path="res://Data/Weapon/weapon_uzi.tres" id="15_muiun"]
+[ext_resource type="Resource" uid="uid://1ps47x4oeiku" path="res://Data/Weapon/weapon_sword.tres" id="16_jw73i"]
+[ext_resource type="Resource" uid="uid://joqhwirw7gwx" path="res://Data/Weapon/weapon_axe.tres" id="17_muiun"]
 [ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://assets/TopDownAssets/Sounds/select-a.ogg" id="19_iibqf"]
 [ext_resource type="AudioStream" uid="uid://dlyw3ke5ldgn7" path="res://assets/TopDownAssets/Sounds/button_hover.wav" id="20_thm5u"]
 
@@ -54,14 +56,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
 offset_top = 1.0
+offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aj0io")
 selection_cursor = SubResource("AtlasTexture_pb1v1")
 players_array = Array[ExtResource("3_oe7ax")]([ExtResource("7_nwqkb"), ExtResource("4_nwqkb"), ExtResource("5_xv4yp"), ExtResource("6_pb1v1")])
-weapons_array = Array[ExtResource("8_pb1v1")]([ExtResource("9_r7boc"), ExtResource("10_oxayx"), ExtResource("11_iibqf"), ExtResource("12_thm5u"), ExtResource("13_8cin8"), ExtResource("14_jw73i"), ExtResource("15_muiun")])
+weapons_array = Array[ExtResource("8_pb1v1")]([ExtResource("9_r7boc"), ExtResource("10_oxayx"), ExtResource("11_iibqf"), ExtResource("12_thm5u"), ExtResource("13_8cin8"), ExtResource("14_jw73i"), ExtResource("15_muiun"), ExtResource("16_jw73i"), ExtResource("17_muiun")])
 
 [node name="BackGroun" parent="." unique_id=1565211568 instance=ExtResource("1_c4n5n")]
 layout_mode = 1

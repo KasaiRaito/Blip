@@ -23,6 +23,8 @@ var all_weapons: Dictionary[String, PackedScene] = {
 	"Sniper": preload("uid://6yvqnnusp6k6"),
 	"Tommy Gun": preload("uid://dvpfuyp81sfxp"),
 	"Uzi": preload("uid://btjot64kxelv2"),
+	"Axe": preload("uid://5cv2hdbdoe3a"),
+	"Sword": preload("uid://dssi24ha6byf5")
 }
 
 var selected_player: PlayerData
