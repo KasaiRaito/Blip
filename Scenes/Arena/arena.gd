@@ -31,7 +31,7 @@ func _ready() -> void:
 	select_special_rooms()
 	create_rooms()
 	create_corridors()
-	load_game_selection()
+	load_game_selection() 
 	
 	var first_room: LevelRoom = grid[Vector2i.ZERO]
 	first_room.is_cleared = true

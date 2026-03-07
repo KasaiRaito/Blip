@@ -9,11 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c3sfbp030wr8x" path="res://Scenes/Props/plant_3.tscn" id="4_w13gu"]
 [ext_resource type="PackedScene" uid="uid://b2xhdw4qvuqem" path="res://Scenes/Props/plant_4.tscn" id="5_bvicp"]
 [ext_resource type="PackedScene" uid="uid://c73l74qsar2u6" path="res://Scenes/Leveles/level_01_VCorridor.tscn" id="5_xaqnb"]
+[ext_resource type="PackedScene" uid="uid://c73u1kxnreffb" path="res://Scenes/Props/plant_5.tscn" id="6_wqwp3"]
 
 [resource]
 script = ExtResource("1_pm2ap")
 room_scene = ExtResource("1_wrwk1")
 h_corridor = ExtResource("1_lrgif")
 v_corridor = ExtResource("5_xaqnb")
-props = Array[PackedScene]([ExtResource("2_2k02h"), ExtResource("3_wqwp3"), ExtResource("4_w13gu"), ExtResource("5_bvicp")])
+props = Array[PackedScene]([ExtResource("2_2k02h"), ExtResource("3_wqwp3"), ExtResource("4_w13gu"), ExtResource("5_bvicp"), ExtResource("6_wqwp3")])
 metadata/_custom_type_script = "uid://dgimcu0xqm6iw"

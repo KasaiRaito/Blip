@@ -9,7 +9,7 @@ region = Rect2(64, 66, 16, 12)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sulwg"]
 radius = 6.0
-height = 12.0
+height = 16.0
 
 [node name="Plant4" unique_id=1873424515 instance=ExtResource("1_pevtq")]
 
@@ -17,4 +17,5 @@ height = 12.0
 texture = SubResource("AtlasTexture_2viwm")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1373131141]
+rotation = -0.0035224285
 shape = SubResource("CapsuleShape2D_sulwg")

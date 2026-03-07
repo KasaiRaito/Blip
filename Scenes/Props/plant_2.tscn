@@ -9,6 +9,7 @@ region = Rect2(49, 49, 15, 31)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhv5a"]
 radius = 7.0
+height = 36.0
 
 [node name="Plant2" unique_id=1873424515 instance=ExtResource("1_pf1o2")]
 

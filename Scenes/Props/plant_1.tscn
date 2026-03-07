@@ -8,8 +8,8 @@ atlas = ExtResource("2_pqjgg")
 region = Rect2(48, 33, 16, 14)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flfx6"]
-radius = 7.0
-height = 14.0
+radius = 6.999515
+height = 19.998615
 
 [node name="Plant1" unique_id=1873424515 instance=ExtResource("1_641wq")]
 
@@ -17,4 +17,5 @@ height = 14.0
 texture = SubResource("AtlasTexture_8r8sw")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1373131141]
+rotation = -0.011771047
 shape = SubResource("CapsuleShape2D_flfx6")
