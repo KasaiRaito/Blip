@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b4gv4fuusfq70"]
+
+[ext_resource type="PackedScene" uid="uid://k38ukcowivyf" path="res://Scenes/Enemyes/enemy_base.tscn" id="1_5qbi7"]
+[ext_resource type="Texture2D" uid="uid://dt305ttjc2qw7" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0015.png" id="2_xin0i"]
+[ext_resource type="Texture2D" uid="uid://xo043uc37wpm" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0014.png" id="3_mow7o"]
+[ext_resource type="Texture2D" uid="uid://dlawjfchfn4so" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0013.png" id="4_nx1ke"]
+[ext_resource type="Texture2D" uid="uid://cijt4b5liatug" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0012.png" id="5_x8dia"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hq7b5"]
+load_path = "res://.godot/imported/Shadow.png-3454610d3d27c27ac13716dc668c20d4.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uaefd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xin0i")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mow7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nx1ke")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x8dia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nx1ke")
+}],
+"loop": true,
+"name": &"move",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7elq"]
+radius = 3.9999998
+height = 7.9999995
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eo2yx"]
+radius = 7.0
+height = 16.0
+
+[node name="Enemy4" unique_id=30221422 instance=ExtResource("1_5qbi7")]
+
+[node name="Shadow" parent="." index="0" unique_id=1515469880]
+texture = SubResource("CompressedTexture2D_hq7b5")
+
+[node name="AnimSprite" parent="." index="1" unique_id=1528425262]
+sprite_frames = SubResource("SpriteFrames_uaefd")
+frame_progress = 0.25152558
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=901391314]
+shape = SubResource("CapsuleShape2D_i7elq")
+
+[node name="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(620711256) index="0" unique_id=1413415516]
+position = Vector2(1, -8)
+rotation = 0.0
+shape = SubResource("CapsuleShape2D_eo2yx")

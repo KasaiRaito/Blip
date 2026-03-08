@@ -30,6 +30,10 @@ func reister_tiles() -> void:
 	for tile in tile_data.get_used_cells():
 		tiles.append(tile)
 
+func get_free_spawn_position()-> Vector2:
+	var tile_coord: Vector2i = tiles.pick_random()
+	return tile_data.map_to_local(tile_coord)
+
 func create_props(data: LevelData) -> void:
 	var prop_count = randi_range(0, data.max_props_per_room)
 	for i in prop_count:

@@ -29,6 +29,7 @@ var all_weapons: Dictionary[String, PackedScene] = {
 	"Sword": preload("uid://dssi24ha6byf5")
 }
 
+var player_ref: Player
 var selected_player: PlayerData
 var selected_weapon: WeaponData
 

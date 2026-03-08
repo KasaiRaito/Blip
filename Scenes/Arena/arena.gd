@@ -7,6 +7,7 @@ class_name Arena
 @onready var health_bar: TextureProgressBar = %HealthBar
 @onready var mana_bar: TextureProgressBar = %ManaBar
 @onready var map_controller: MapController = $UI/MapController
+@onready var enemy_spawner: EnemySpawner = $EnemySpawner
 
 var grid: Dictionary[Vector2i, LevelRoom] = {}
 var start_room_coord: Vector2i
@@ -21,6 +22,7 @@ func _ready() -> void:
 	Cursor.sprite.texture = arena_curson
 	EventBus.on_player_health_change.connect(_on_player_health_change)
 	EventBus.on_player_room_entered.connect(_on_player_room_entered)
+	EventBus.on_room_creared.connect(_on_room_cleared)
 	
 	grid_cell_size = Vector2i(
 		level_data.room_size.x + level_data.corridor_size.x,
@@ -134,6 +136,8 @@ func load_game_selection() -> void:
 	add_child(player)
 	player.global_position = spawn_position.global_position
 	player.weapon_controller.equip_weapon()
+	
+	Global.player_ref = player
 
 func find_coord_from_room(room: LevelRoom) -> Vector2i:
 	for coord: Vector2i in grid:
@@ -155,3 +159,8 @@ func _on_player_room_entered(room: LevelRoom) -> void:
 	
 	if not room.is_cleared:
 		room.lock_room()
+		enemy_spawner.spawn_enemies(level_data, room)
+
+func _on_room_cleared() -> void:
+	current_room.unluck_room()
+	current_room.is_cleared = true
