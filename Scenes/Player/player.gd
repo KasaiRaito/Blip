@@ -6,6 +6,7 @@ class_name Player
 @onready var anim_sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var weapon_controller: WeaponController = $WeaponController
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
 
 var can_move = true
 var movement: Vector2
@@ -60,6 +61,10 @@ func _on_health_component_on_unit_damage(amount: float) -> void:
 	await get_tree().create_timer(0.25).timeout
 	anim_sprite.material = null
 	Engine.time_scale = 1.0
+	
+	hurt_sfx.pitch_scale = randf_range(0.75,1.25)
+	hurt_sfx.volume_db = randf_range(0, 5)
+	hurt_sfx.play()
 
 
 func _on_health_component_on_unit_dead() -> void:

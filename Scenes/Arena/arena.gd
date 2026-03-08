@@ -8,6 +8,8 @@ class_name Arena
 @onready var mana_bar: TextureProgressBar = %ManaBar
 @onready var map_controller: MapController = $UI/MapController
 @onready var enemy_spawner: EnemySpawner = $EnemySpawner
+@onready var total_coins: Label = $UI/Coins/TotalCoins
+@onready var coin_sound: AudioStreamPlayer = $CoinSound
 
 var grid: Dictionary[Vector2i, LevelRoom] = {}
 var start_room_coord: Vector2i
@@ -23,6 +25,7 @@ func _ready() -> void:
 	EventBus.on_player_health_change.connect(_on_player_health_change)
 	EventBus.on_player_room_entered.connect(_on_player_room_entered)
 	EventBus.on_room_creared.connect(_on_room_cleared)
+	EventBus.on_coin_picked.connect(_on_coin_picked)
 	
 	grid_cell_size = Vector2i(
 		level_data.room_size.x + level_data.corridor_size.x,
@@ -37,6 +40,8 @@ func _ready() -> void:
 	
 	var first_room: LevelRoom = grid[Vector2i.ZERO]
 	first_room.is_cleared = true
+	
+	total_coins.text = "$" + str(Global.coins)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -164,3 +169,9 @@ func _on_player_room_entered(room: LevelRoom) -> void:
 func _on_room_cleared() -> void:
 	current_room.unluck_room()
 	current_room.is_cleared = true
+
+func _on_coin_picked() -> void:
+	coin_sound.pitch_scale = randf_range(0.9,1.1)
+	coin_sound.volume_db = randf_range(-8,-5)
+	coin_sound.play()
+	total_coins.text = "$" + str(Global.coins)

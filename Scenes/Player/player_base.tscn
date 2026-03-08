@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_kxl1r"]
 [ext_resource type="Script" uid="uid://c0d0aiotcww18" path="res://Scenes/Components/health_component.gd" id="4_l7qia"]
 [ext_resource type="PackedScene" uid="uid://cdgrka8pjhd6v" path="res://Scenes/Weapons/weapon_controller.tscn" id="5_kpr8i"]
+[ext_resource type="AudioStream" uid="uid://df2yhaqh55n2m" path="res://assets/TopDownAssets/Sounds/hurt-a.ogg" id="6_pcgkm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vtsbd"]
 animations = [{
@@ -58,6 +59,9 @@ metadata/_custom_type_script = "uid://c0d0aiotcww18"
 
 [node name="WeaponController" parent="." unique_id=1595912045 instance=ExtResource("5_kpr8i")]
 position = Vector2(1, -8)
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=28442621]
+stream = ExtResource("6_pcgkm")
 
 [connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
 [connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]

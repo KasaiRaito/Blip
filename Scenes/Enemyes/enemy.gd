@@ -157,6 +157,10 @@ func _on_health_component_on_unit_damage(amount: float) -> void:
 	
 	anim_sprite.material = hit_material
 	
+	hurt_sound.pitch_scale = randf_range(0.75,1.25)
+	hurt_sound.volume_db = randf_range(-15,-8)
+	hurt_sound.play()
+	
 	anim_sprite.play("hurt")
 	Engine.time_scale = 0.9
 	await get_tree().create_timer(0.25).timeout

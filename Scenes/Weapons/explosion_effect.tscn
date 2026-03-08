@@ -55,7 +55,7 @@ frame = 4
 frame_progress = 1.0
 script = ExtResource("2_qali2")
 
-[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1891125058]
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1891125058]
 stream = ExtResource("3_sulef")
 volume_db = -10.0
 bus = &"SFX"

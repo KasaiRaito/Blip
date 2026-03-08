@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://djtqrhxpxpjeg" path="res://assets/TopDownAssets/Sprites/Interface/bar_mana.png" id="6_11not"]
 [ext_resource type="Script" uid="uid://blomko75vxock" path="res://Scenes/Arena/map_controller.gd" id="10_vgwd8"]
 [ext_resource type="Texture2D" uid="uid://c5vwsotmmnflp" path="res://assets/TopDownAssets/Sprites/Interface/itembg.png" id="11_xt8pn"]
+[ext_resource type="Texture2D" uid="uid://cnkiu5jecgwsr" path="res://assets/TopDownAssets/Sprites/coin.png" id="13_nmnh2"]
+[ext_resource type="FontFile" uid="uid://cmkei0r5t77jr" path="res://assets/TopDownAssets/Font/Lilian.ttf" id="14_87vak"]
+[ext_resource type="AudioStream" uid="uid://bjbp00yg6pnan" path="res://assets/TopDownAssets/Sounds/coin-a.ogg" id="15_vgng5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsjwy"]
 atlas = ExtResource("2_0ibrr")
@@ -20,6 +23,10 @@ region = Rect2(2, 2, 20, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8w6q"]
 atlas = ExtResource("1_b8w6q")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vgng5"]
+font = ExtResource("14_87vak")
+font_size = 15
 
 [node name="Arena" type="Node2D" unique_id=1447146577]
 script = ExtResource("1_qnyor")
@@ -123,3 +130,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_xt8pn")
+
+[node name="Coins" type="Control" parent="UI" unique_id=1312014056]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 75.0
+offset_right = 45.0
+offset_bottom = 115.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Coins" unique_id=1959200437]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = ExtResource("13_nmnh2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TotalCoins" type="Label" parent="UI/Coins" unique_id=334967855]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = -11.5
+offset_right = 57.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "$50"
+label_settings = SubResource("LabelSettings_vgng5")
+vertical_alignment = 1
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=1995307973]
+stream = ExtResource("15_vgng5")
+bus = &"SFX"
