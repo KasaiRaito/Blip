@@ -7,7 +7,7 @@
 script = ExtResource("2_c4ix7")
 weapon_name = "Axe"
 icon = ExtResource("1_l76yb")
-damage = 3.0
+damage = 5.0
 cooldown = 0.3
 shoot_cost = 2
 spread = 0.0

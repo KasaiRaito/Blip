@@ -50,6 +50,7 @@ func create_explosion(pos: Vector2) -> void:
 
 func create_damage_text(value: int, pos: Vector2) -> void:
 	var damage: DamageText = DAMAGE_TEXT_SCENE.instantiate()
+	damage
 	get_parent().add_child(damage)
 	var random_pos = randf_range(0, TAU)
 	var distance = randf_range(10,25)

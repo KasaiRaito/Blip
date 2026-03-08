@@ -32,6 +32,7 @@ enum EnemyStates{
 var can_move: bool = true
 var is_dead: bool = false
 var cooldown: float
+var hit_material: ShaderMaterial = Global.HIT_MATERIAL.duplicate()
 
 var cached_player: Player
 
@@ -47,6 +48,8 @@ func _ready() -> void:
 		return
 	
 	weapon_controller.equip_weapon(weapon)
+	
+	hit_material.set_shader_parameter("my_custom_color", Color(1, 1, 1))
 
 func _process(delta: float) -> void:
 	if not Global.player_ref:
@@ -89,6 +92,7 @@ func run_enemy_weapon()-> void:
 			enemy_state = EnemyStates.MOVING
 		
 		EnemyStates.MOVING:
+			anim_sprite.play("move")
 			var dir = global_position.direction_to(move_destination)
 			velocity = dir * move_speed
 			move_and_slide()
@@ -98,6 +102,7 @@ func run_enemy_weapon()-> void:
 				enemy_state = EnemyStates.ATTACKING
 		
 		EnemyStates.ATTACKING:
+			anim_sprite.play("idle")
 			velocity = Vector2.ZERO
 			move_and_slide()
 			await get_tree().create_timer(1.0).timeout
@@ -127,20 +132,38 @@ func enemy_death() -> void:
 		return
 	
 	is_dead = true
+	
+	anim_sprite.material = Global.HIT_MATERIAL
+	
+	anim_sprite.play("hurt")
+	await get_tree().create_timer(0.25).timeout
+	
+	print(anim_sprite.animation)
+	anim_sprite.material = null
+	
+	anim_sprite.play("move")
+	
 	Global.create_death_particle(death_texture, global_position)
 	EventBus.on_enemy_death.emit()
 	queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	body.health_component.take_damage(collision_damage)
+	enemy_death()
 
 
 func _on_health_component_on_unit_damage(amount: float) -> void:
 	hp_bar.value = health_component.current_health / max_health
 	
-	anim_sprite.material = Global.HIT_MATERIAL
+	anim_sprite.material = hit_material
+	
+	anim_sprite.play("hurt")
+	Engine.time_scale = 0.9
 	await get_tree().create_timer(0.25).timeout
 	anim_sprite.material = null
+	
+	anim_sprite.play("move")
+	Engine.time_scale = 1.0
 
 func _on_health_component_on_unit_dead() -> void:
 	enemy_death()

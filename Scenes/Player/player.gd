@@ -11,9 +11,11 @@ var can_move = true
 var movement: Vector2
 var direction: Vector2
 var cooldown: float
+var hit_material: ShaderMaterial = Global.HIT_MATERIAL.duplicate()
 
 func _ready() -> void:
 	health_component.init_health(data.max_hp)
+	hit_material.set_shader_parameter("my_custom_color", Color(1, 0, 0))
 
 func _process(delta: float) -> void:
 	weapon_controller.target_position = get_global_mouse_position()
@@ -50,7 +52,14 @@ func rotate_player() -> void:
 			visuals.scale = Vector2(-1.25, 1.25)
 
 func _on_health_component_on_unit_damage(amount: float) -> void:
+	Engine.time_scale = 0.5
 	EventBus.on_player_health_change.emit(health_component.current_health, data.max_hp)
+	
+	anim_sprite.material = hit_material
+	
+	await get_tree().create_timer(0.25).timeout
+	anim_sprite.material = null
+	Engine.time_scale = 1.0
 
 
 func _on_health_component_on_unit_dead() -> void:

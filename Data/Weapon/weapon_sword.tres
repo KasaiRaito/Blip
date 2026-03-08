@@ -7,7 +7,7 @@
 script = ExtResource("3_83yxe")
 weapon_name = "Sword"
 icon = ExtResource("2_wv1qy")
-damage = 0.5
+damage = 2.0
 cooldown = 0.2
 spread = 0.0
 bullet_speed = 0.0

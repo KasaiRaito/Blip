@@ -8,4 +8,5 @@ radius = 8.333333
 [node name="BulletPistol" unique_id=59547860 instance=ExtResource("1_3noe4")]
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=234380359]
+scale = Vector2(0.75, 0.75)
 shape = SubResource("CircleShape2D_3noe4")

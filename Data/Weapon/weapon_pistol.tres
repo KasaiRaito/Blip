@@ -8,8 +8,9 @@
 script = ExtResource("1_bhmqt")
 weapon_name = "Pistol"
 icon = ExtResource("1_j404v")
+damage = 2.0
 cooldown = 0.4
-spread = 5.0
+spread = 3.0
 bullet_speed = 250.0
 bullet_scene = ExtResource("1_tbbqq")
 description = "Basic balanced gun"
