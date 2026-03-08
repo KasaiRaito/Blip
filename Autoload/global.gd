@@ -6,6 +6,8 @@ const DAMAGE_TEXT_SCENE = preload("uid://ckn0qpk2b8hrd")
 const SPAWN_MARKER_SCENE = preload("uid://ccnv8enh5ikh7")
 const DEATH_PARTICLE_SCENE = preload("uid://bgbhv716ht2iq")
 const BLOOD_EFFECT_SCENE = preload("uid://cgc7s2mc1ynuu")
+const CHEST_SCENE = preload("uid://du5eegue7r88n")
+const STORE_ITEM_SCENE = preload("uid://cpi8pej5bnfqa")
 const HIT_MATERIAL = preload("uid://cjtvfxwrxriq0")
 
 var settings: Dictionary = {

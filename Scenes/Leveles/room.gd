@@ -1,6 +1,8 @@
 extends Node2D
 class_name LevelRoom
 
+@export var item_positions: Array[Marker2D]
+
 @onready var player_spawn_position: Marker2D = $PlayerSpawnPosition
 @onready var tile_data: TileMapLayer = $TileData
 
@@ -29,6 +31,17 @@ func _ready() -> void:
 func reister_tiles() -> void:
 	for tile in tile_data.get_used_cells():
 		tiles.append(tile)
+
+func setup_room_as_shoop(data: LevelData) -> void:
+	if data.store_data.is_empty():
+		return
+	
+	for item_pos: Marker2D in item_positions:
+		var item_data: ItemData = data.get_random_store_item()
+		var item : StoreItem = Global.STORE_ITEM_SCENE.instantiate()
+		add_child(item)
+		item.global_position = item_pos.global_position
+		item.set_up(item_data)
 
 func get_free_spawn_position()-> Vector2:
 	var tile_coord: Vector2i = tiles.pick_random()

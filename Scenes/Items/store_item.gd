@@ -27,6 +27,12 @@ func buy_item() -> void:
 	if not data:
 		return
 	
+	if Global.coins < data.price:
+		return
+	
+	Global.coins -= data.price
+	EventBus.on_coin_picked.emit()
+	
 	#
 	# Add Items To Buy
 	#

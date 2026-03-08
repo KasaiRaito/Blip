@@ -14,6 +14,8 @@ class_name Arena
 var grid: Dictionary[Vector2i, LevelRoom] = {}
 var start_room_coord: Vector2i
 var end_room_coord: Vector2i
+var store_room_coord: Vector2i
+
 var grid_cell_size: Vector2i
 
 var player: Player
@@ -83,6 +85,11 @@ func create_rooms() -> void:
 		room_instance.create_props(level_data)
 		
 		grid[room_coord] = room_instance
+		
+		if room_coord == store_room_coord:
+			room_instance.is_cleared = true
+			room_instance.setup_room_as_shoop(level_data)
+		
 		connect_rooms(room_coord, room_instance)
 
 func create_corridors() -> void:
@@ -120,6 +127,17 @@ func connect_rooms(room_coord: Vector2i, room_instance: LevelRoom) -> void:
 func select_special_rooms() -> void:
 	start_room_coord = Vector2i.ZERO
 	end_room_coord = find_farthest_room()
+	
+	var candidate_coord = grid.keys()
+	candidate_coord.erase(start_room_coord)
+	candidate_coord.erase(end_room_coord)
+	
+	if not candidate_coord.is_empty():
+		store_room_coord = candidate_coord.pick_random()
+	else:
+		store_room_coord = Vector2i.MAX
+		print("No Shop Coord")
+	
 
 func find_farthest_room() -> Vector2i:
 	var farthest_room_coord: Vector2i = start_room_coord
@@ -169,6 +187,13 @@ func _on_player_room_entered(room: LevelRoom) -> void:
 func _on_room_cleared() -> void:
 	current_room.unluck_room()
 	current_room.is_cleared = true
+	
+	var tile_pos: = current_room.get_free_spawn_position()
+	var chest_pos: = current_room.to_global(tile_pos)
+	var chest = Global.CHEST_SCENE.instantiate() as Chest
+	get_tree().root.add_child(chest)
+	chest.global_position = chest_pos
+	
 
 func _on_coin_picked() -> void:
 	coin_sound.pitch_scale = randf_range(0.9,1.1)

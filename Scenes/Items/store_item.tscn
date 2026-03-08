@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cpi8pej5bnfqa"]
 
-[ext_resource type="Texture2D" uid="uid://dw8ew530rlfr" path="res://assets/TopDownAssets/Sprites/glow4.png" id="1_0t2fg"]
-[ext_resource type="Script" uid="uid://dodjcdaykvy4l" path="res://Scenes/Items/store_item_base.gd" id="1_t10tw"]
-[ext_resource type="Texture2D" uid="uid://0poobuecm0un" path="res://assets/TopDownAssets/Sprites/Items/Item_White1.png" id="2_i6r0o"]
-[ext_resource type="FontFile" uid="uid://cmkei0r5t77jr" path="res://assets/TopDownAssets/Font/Lilian.ttf" id="3_x4253"]
+[ext_resource type="Script" uid="uid://dodjcdaykvy4l" path="res://Scenes/Items/store_item.gd" id="1_shsl4"]
+[ext_resource type="Texture2D" uid="uid://dw8ew530rlfr" path="res://assets/TopDownAssets/Sprites/glow4.png" id="2_iau1q"]
+[ext_resource type="Texture2D" uid="uid://0poobuecm0un" path="res://assets/TopDownAssets/Sprites/Items/Item_White1.png" id="3_ssfw3"]
+[ext_resource type="FontFile" uid="uid://cmkei0r5t77jr" path="res://assets/TopDownAssets/Font/Lilian.ttf" id="4_wm62w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i6r0o"]
 radius = 26.0
@@ -70,19 +70,19 @@ _data = {
 &"idle": SubResource("Animation_t10tw")
 }
 
-[node name="StoreItemBase" type="Area2D" unique_id=1417745590]
+[node name="StoreItem" type="Area2D" unique_id=1417745590]
 collision_mask = 2
-script = ExtResource("1_t10tw")
+script = ExtResource("1_shsl4")
 common_glow = Color(1, 1, 1, 1)
 rare_glow = Color(0.31321016, 0.52206707, 1, 1)
 epic_glow = Color(0.7281281, 0.15761366, 0.99999994, 1)
 
 [node name="Glow" type="Sprite2D" parent="." unique_id=94977624]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_0t2fg")
+texture = ExtResource("2_iau1q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=192619084]
-texture = ExtResource("2_i6r0o")
+texture = ExtResource("3_ssfw3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2053018397]
 shape = SubResource("CircleShape2D_i6r0o")
@@ -99,7 +99,7 @@ offset_right = 15.5
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("3_x4253")
+theme_override_fonts/normal_font = ExtResource("4_wm62w")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[code][img=10]assets/TopDownAssets/Sprites/coin.png[/img] [/code]10"
