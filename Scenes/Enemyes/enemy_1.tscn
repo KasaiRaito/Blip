@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d2gowyxbvkf5g" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0001.png" id="4_vaw0m"]
 [ext_resource type="Texture2D" uid="uid://cgvslb1dnigc8" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0000.png" id="5_q0td2"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6804v"]
+load_path = "res://.godot/imported/tile_0003.png-e5c5ad83640420ad159929eef9ae2da8.ctex"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bwvi1"]
 load_path = "res://.godot/imported/Shadow.png-3454610d3d27c27ac13716dc668c20d4.ctex"
 
@@ -51,6 +54,7 @@ radius = 4.0
 height = 16.0
 
 [node name="Enemy1" unique_id=30221422 instance=ExtResource("1_vuhol")]
+death_texture = SubResource("CompressedTexture2D_6804v")
 
 [node name="Shadow" parent="." index="0" unique_id=1515469880]
 texture = SubResource("CompressedTexture2D_bwvi1")

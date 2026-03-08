@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bmi1eu80faffk" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0002.png" id="4_c5jfj"]
 [ext_resource type="Texture2D" uid="uid://d2gowyxbvkf5g" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0001.png" id="5_8s2fc"]
 [ext_resource type="Texture2D" uid="uid://cgvslb1dnigc8" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0000.png" id="6_mx4lp"]
+[ext_resource type="PackedScene" uid="uid://bfm050da2m0gp" path="res://Scenes/Components/health_component.tscn" id="8_5l0xp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0qbmt"]
 animations = [{
@@ -49,7 +50,14 @@ height = 7.9999995
 radius = 4.0
 height = 16.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kv8l"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l0xp"]
+bg_color = Color(1, 0, 0, 0.78431374)
+
 [node name="EnemyBase" type="CharacterBody2D" unique_id=30221422]
+scale = Vector2(1.25, 1.25)
 collision_layer = 4
 script = ExtResource("1_vtmid")
 
@@ -82,4 +90,20 @@ shape = SubResource("CapsuleShape2D_5l0xp")
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1094997954]
 stream = ExtResource("1_lolro")
 
+[node name="HP_Bar" type="ProgressBar" parent="." unique_id=1757553725]
+custom_minimum_size = Vector2(20, 2)
+offset_left = -10.0
+offset_top = -22.0
+offset_right = 10.0
+offset_bottom = -20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4kv8l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5l0xp")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="HealthComponent" parent="." unique_id=1175382988 instance=ExtResource("8_5l0xp")]
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
+[connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]
