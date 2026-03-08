@@ -18,6 +18,7 @@ class_name Enemy
 
 @onready var hp_bar: ProgressBar = $HP_Bar
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var enemy_detector: Area2D = $EnemyDetector
 
 var can_move: bool = true
 var is_dead: bool = false
@@ -35,6 +36,12 @@ func _physics_process(_delta: float) -> void:
 	cached_player = Global.player_ref
 	
 	var dir := global_position.direction_to(cached_player.global_position)
+	
+	for enemy : Enemy in enemy_detector.get_overlapping_bodies():
+		if enemy != self and enemy.is_inside_tree():
+			var vector = global_position - enemy.global_position
+			dir += 10 * vector.normalized() / vector.length()
+	
 	velocity = dir * chase_speed
 	
 	move_and_slide()

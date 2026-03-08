@@ -50,6 +50,9 @@ height = 7.9999995
 radius = 4.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5l0xp"]
+radius = 20.800001
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kv8l"]
 bg_color = Color(0, 0, 0, 0.49803922)
 
@@ -86,6 +89,16 @@ collision_mask = 2
 position = Vector2(0, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_5l0xp")
+
+[node name="EnemyDetector" type="Area2D" parent="." unique_id=1553308029]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector" unique_id=186460262]
+position = Vector2(0, -4.0000005)
+shape = SubResource("CircleShape2D_5l0xp")
+debug_color = Color(0.9937708, 0, 0.23951992, 0.41960785)
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1094997954]
 stream = ExtResource("1_lolro")
