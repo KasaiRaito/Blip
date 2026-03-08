@@ -23,6 +23,7 @@ class_name Enemy
 
 var can_move: bool = true
 var is_dead: bool = false
+var cooldown: float
 
 var cached_player: Player
 
@@ -35,12 +36,12 @@ func _ready() -> void:
 	
 	weapon_controller.equip_weapon(weapon)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if not Global.player_ref:
 		return
 	
 	rotate_enemy()
-	manage_weapon()
+	manage_weapon(delta)
 
 func _physics_process(_delta: float) -> void:
 	if not Global.player_ref or not can_move:
@@ -60,12 +61,18 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	rotate_enemy()
 
-func manage_weapon() -> void:
+func manage_weapon(delta: float) -> void:
 	if not weapon or not weapon_controller: 
 		return
 	
-	weapon_controller.target_position = Global.player_ref.global_position
+	weapon_controller.target_position = cached_player.global_position
 	weapon_controller.rotate_weapon()
+	
+	cooldown -= delta
+	
+	if cooldown <= 0.0:
+		weapon_controller.current_weapon.use_weapon()
+		cooldown = weapon_controller.current_weapon.data.cooldown
 
 func rotate_enemy() -> void:
 	if global_position.x > cached_player.global_position.x:

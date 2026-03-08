@@ -6,10 +6,10 @@ var target_position: Vector2
 
 func equip_weapon(data: WeaponData) -> void:
 	var weapon_scene = Global.all_weapons[data.weapon_name]
-	var weapon: Weapon = Global.get_weapon().instantiate()
+	var weapon: Weapon = weapon_scene.instantiate()
 	
 	current_weapon = weapon
-	current_weapon.data = Global.selected_weapon
+	current_weapon.data = data
 	add_child(weapon)
 
 func rotate_weapon() -> void:
