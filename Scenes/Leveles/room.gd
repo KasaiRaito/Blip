@@ -66,4 +66,5 @@ func close_all_walls()-> void:
 
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
-	EventBus.on_player_room_entered.emit(self)
+	if body is Player:
+		EventBus.on_player_room_entered.emit(self)

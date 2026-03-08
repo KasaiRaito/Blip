@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkwolsonl8xxe" path="res://Scenes/Leveles/room.gd" id="1_w8gql"]
 [ext_resource type="TileSet" uid="uid://cihq3fxf10vm1" path="res://Extra/level_01_tilesett.tres" id="2_qag2s"]
-[ext_resource type="PackedScene" uid="uid://dhfw4vmrrtjcu" path="res://Scenes/Items/coin.tscn" id="3_gsaov"]
+[ext_resource type="PackedScene" uid="uid://du5eegue7r88n" path="res://Scenes/Items/chest.tscn" id="3_gsaov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qag2s"]
 size = Vector2(290, 290)
@@ -76,19 +76,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=2110225507]
 shape = SubResource("RectangleShape2D_qag2s")
 
-[node name="Coin" parent="." unique_id=298413798 instance=ExtResource("3_gsaov")]
-position = Vector2(-110, 84)
-
-[node name="Coin2" parent="." unique_id=716305936 instance=ExtResource("3_gsaov")]
-position = Vector2(46, 97)
-
-[node name="Coin3" parent="." unique_id=908152218 instance=ExtResource("3_gsaov")]
-position = Vector2(34, 39)
-
-[node name="Coin4" parent="." unique_id=196808237 instance=ExtResource("3_gsaov")]
-position = Vector2(-63, -23)
-
-[node name="Coin5" parent="." unique_id=599317603 instance=ExtResource("3_gsaov")]
-position = Vector2(-63, -23)
+[node name="Chest" parent="." unique_id=1014719947 instance=ExtResource("3_gsaov")]
+position = Vector2(-3, -114)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

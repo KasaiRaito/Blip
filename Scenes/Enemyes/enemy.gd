@@ -148,6 +148,9 @@ func enemy_death() -> void:
 	queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
+	if not body is Player:
+		return
+	
 	body.health_component.take_damage(collision_damage)
 	enemy_death()
 
