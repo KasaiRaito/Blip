@@ -45,4 +45,4 @@ collision_mask = 7
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=2044666010]
 position = Vector2(-0.5, -0.5)
 sprite_frames = SubResource("SpriteFrames_ahs81")
-frame_progress = 0.58523995
+frame_progress = 0.388032
