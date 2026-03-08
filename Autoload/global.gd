@@ -5,6 +5,7 @@ const EXPLOSION_EFFECT_SCENE = preload("uid://y7mpm4d3g4nj")
 const DAMAGE_TEXT_SCENE = preload("uid://ckn0qpk2b8hrd")
 const SPAWN_MARKER_SCENE = preload("uid://ccnv8enh5ikh7")
 const DEATH_PARTICLE_SCENE = preload("uid://bgbhv716ht2iq")
+const BLOOD_EFFECT_SCENE = preload("uid://cgc7s2mc1ynuu")
 const HIT_MATERIAL = preload("uid://cjtvfxwrxriq0")
 
 var settings: Dictionary = {
@@ -49,18 +50,24 @@ func create_explosion(pos: Vector2) -> void:
 
 func create_damage_text(value: int, pos: Vector2) -> void:
 	var damage: DamageText = DAMAGE_TEXT_SCENE.instantiate()
+	damage
 	get_parent().add_child(damage)
 	var random_pos = randf_range(0, TAU)
 	var distance = randf_range(10,25)
 	damage.global_position = pos + Vector2.RIGHT.rotated(random_pos) * distance
 	
 	damage.setup(value)
+	
+	var blood = BLOOD_EFFECT_SCENE.instantiate()
+	get_parent().add_child(blood)
+	blood.global_position = pos
 
 func create_death_particle(texture: Texture2D, pos: Vector2) -> void:
 	var particle = DEATH_PARTICLE_SCENE.instantiate() as GPUParticles2D
 	particle.texture = texture
 	particle.global_position = pos
 	get_tree().root.add_child(particle)
+	particle.emitting = true
 	
 
 func save_data() -> void:

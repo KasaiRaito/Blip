@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d2gowyxbvkf5g" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0001.png" id="5_8s2fc"]
 [ext_resource type="Texture2D" uid="uid://cgvslb1dnigc8" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0000.png" id="6_mx4lp"]
 [ext_resource type="PackedScene" uid="uid://bfm050da2m0gp" path="res://Scenes/Components/health_component.tscn" id="8_5l0xp"]
+[ext_resource type="Script" uid="uid://dbd4fbg5wl6oo" path="res://Scenes/Player/weapon_controller.gd" id="9_c5jfj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0qbmt"]
 animations = [{
@@ -33,6 +34,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_mx4lp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mx4lp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_8s2fc")
@@ -49,6 +58,9 @@ height = 7.9999995
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5l0xp"]
 radius = 4.0
 height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5l0xp"]
+radius = 20.800001
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kv8l"]
 bg_color = Color(0, 0, 0, 0.49803922)
@@ -69,9 +81,8 @@ texture = ExtResource("2_4kv8l")
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=1528425262]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_0qbmt")
-animation = &"move"
+animation = &"idle"
 autoplay = "move"
-frame_progress = 0.47885394
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=901391314]
 position = Vector2(0, -4)
@@ -86,6 +97,16 @@ collision_mask = 2
 position = Vector2(0, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_5l0xp")
+
+[node name="EnemyDetector" type="Area2D" parent="." unique_id=1553308029]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector" unique_id=186460262]
+position = Vector2(0, -4.0000005)
+shape = SubResource("CircleShape2D_5l0xp")
+debug_color = Color(0.9937708, 0, 0.23951992, 0.41960785)
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1094997954]
 stream = ExtResource("1_lolro")
@@ -103,6 +124,10 @@ value = 1.0
 show_percentage = false
 
 [node name="HealthComponent" parent="." unique_id=1175382988 instance=ExtResource("8_5l0xp")]
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=1120724933]
+script = ExtResource("9_c5jfj")
+metadata/_custom_type_script = "uid://dbd4fbg5wl6oo"
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]

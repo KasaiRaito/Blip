@@ -36,6 +36,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_q0td2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_q0td2")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_vaw0m")
@@ -61,7 +69,6 @@ texture = SubResource("CompressedTexture2D_bwvi1")
 
 [node name="AnimSprite" parent="." index="1" unique_id=1528425262]
 sprite_frames = SubResource("SpriteFrames_nriy0")
-frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=901391314]
 shape = SubResource("CapsuleShape2D_6r6wo")

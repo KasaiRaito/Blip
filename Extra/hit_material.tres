@@ -4,3 +4,4 @@
 
 [resource]
 shader = ExtResource("1_5i7ys")
+shader_parameter/my_custom_color = Color(1, 1, 1, 1)

@@ -8,10 +8,10 @@
 script = ExtResource("2_k7gap")
 weapon_name = "Shotgun"
 icon = ExtResource("1_u51c4")
-damage = 2.0
+damage = 4.0
 cooldown = 0.8
 shoot_cost = 3
-spread = 10.0
+spread = 5.0
 bullet_speed = 200.0
 bullet_scene = ExtResource("1_k7gap")
 description = "Powerfull shotgun"

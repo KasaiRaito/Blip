@@ -50,4 +50,5 @@ sprite_frames = SubResource("SpriteFrames_kt55u")
 frame_progress = 0.07488934
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=234380359]
+scale = Vector2(0.75, 0.75)
 shape = SubResource("CircleShape2D_0lj32")

@@ -1,6 +1,8 @@
 extends Node2D
 class_name EnemySpawner
 
+@export var arena: Arena
+
 var enemies: Array[Enemy] = []
 var enemies_to_kill: int
 var have_spawned: bool = false
@@ -35,6 +37,7 @@ func spawn_enemies(data: LevelData, room: LevelRoom) -> void:
 		var random_scene = data.enemy_scenes.pick_random()
 		var enemy: Enemy = random_scene.instantiate()
 		enemies.append(enemy)
+		enemy.parrent_room = arena.current_room
 		get_parent().add_child(enemy)
 		enemy.global_position = spawn_global_pos
 	

@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bagrckj5hwhu6" path="res://Data/Player/player_dog.tres" id="2_isex5"]
 [ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_kxl1r"]
 [ext_resource type="Script" uid="uid://c0d0aiotcww18" path="res://Scenes/Components/health_component.gd" id="4_l7qia"]
-[ext_resource type="Script" uid="uid://dbd4fbg5wl6oo" path="res://Scenes/Player/weapon_controller.gd" id="5_pcgkm"]
+[ext_resource type="PackedScene" uid="uid://cdgrka8pjhd6v" path="res://Scenes/Weapons/weapon_controller.tscn" id="5_kpr8i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vtsbd"]
 animations = [{
@@ -42,7 +42,7 @@ texture = ExtResource("2_kxl1r")
 unique_name_in_owner = true
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_vtsbd")
-animation = &"idle"
+animation = &"dead"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718262409]
@@ -56,9 +56,8 @@ shape = SubResource("CapsuleShape2D_kxl1r")
 script = ExtResource("4_l7qia")
 metadata/_custom_type_script = "uid://c0d0aiotcww18"
 
-[node name="WeaponController" type="Node2D" parent="." unique_id=500209724]
+[node name="WeaponController" parent="." unique_id=1595912045 instance=ExtResource("5_kpr8i")]
 position = Vector2(1, -8)
-script = ExtResource("5_pcgkm")
 
 [connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
 [connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]

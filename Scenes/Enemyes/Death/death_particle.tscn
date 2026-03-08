@@ -18,10 +18,19 @@ initial_velocity_max = 80.0
 gravity = Vector3(0, 98, 0)
 scale_curve = SubResource("CurveTexture_0ox7m")
 
+[sub_resource type="GDScript" id="GDScript_lah15"]
+script/source = "extends GPUParticles2D
+
+func _ready() -> void:
+	emitting = true
+"
+
 [node name="DeathParticle" type="GPUParticles2D" unique_id=1995280271]
+scale = Vector2(1.25, 1.25)
 emitting = false
 amount = 1
 texture = ExtResource("1_lah15")
 one_shot = true
 fixed_fps = 0
 process_material = SubResource("ParticleProcessMaterial_u8caa")
+script = SubResource("GDScript_lah15")

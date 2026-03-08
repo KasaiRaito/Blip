@@ -9,11 +9,6 @@ var cooldown: float
 
 func _process(delta: float) -> void:
 	rotate_weapon()
-	
-	cooldown = clamp(cooldown - delta, 0.0, data.cooldown)
-	
-	if Input.is_action_pressed("Shoot") and cooldown == 0:
-		use_weapon()
 
 func use_weapon() -> void:
 	if not data.bullet_scene:
