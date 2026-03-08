@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://cdgnvix6y16mu"]
+
+[ext_resource type="Texture2D" uid="uid://bpa7uv0kkmria" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0005.png" id="1_215pr"]
+[ext_resource type="PackedScene" uid="uid://d2a8ves8vwbl3" path="res://Scenes/Weapons/Ranged/Bullets/bullet_ak_47.tscn" id="1_j83jh"]
+[ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="2_j83jh"]
+
+[resource]
+script = ExtResource("2_j83jh")
+weapon_name = "AK-47"
+icon = ExtResource("1_215pr")
+damage = 0.7
+cooldown = 0.4
+spread = 6.0
+bullet_speed = 250.0
+bullet_scene = ExtResource("1_j83jh")
+description = "Hard shooting weapon"
+metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

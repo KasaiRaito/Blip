@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvdn8parrbyvc"
+path="res://.godot/imported/Bg Music.mp3-1bfcd73c9660f822612ae1fc8f65daf2.mp3str"
+
+[deps]
+
+source_file="res://assets/TopDownAssets/Sounds/Bg Music.mp3"
+dest_files=["res://.godot/imported/Bg Music.mp3-1bfcd73c9660f822612ae1fc8f65daf2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

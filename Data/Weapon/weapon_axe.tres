@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://joqhwirw7gwx"]
+
+[ext_resource type="Texture2D" uid="uid://hm683tll4af4" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0009.png" id="1_l76yb"]
+[ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="2_c4ix7"]
+
+[resource]
+script = ExtResource("2_c4ix7")
+weapon_name = "Axe"
+icon = ExtResource("1_l76yb")
+damage = 3.0
+cooldown = 0.3
+shoot_cost = 2
+spread = 0.0
+bullet_speed = 0.0
+description = "slow high damage axe"
+metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

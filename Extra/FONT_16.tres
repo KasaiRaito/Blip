@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dncjn445hyppc"]
+
+[ext_resource type="FontFile" uid="uid://cmkei0r5t77jr" path="res://Assets/TopDownAssets/Font/Lilian.ttf" id="1_jnpwo"]
+
+[resource]
+font = ExtResource("1_jnpwo")

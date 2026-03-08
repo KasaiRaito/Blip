@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://b8dk6lfhskhax"]
+
+[ext_resource type="Texture2D" uid="uid://c2onnhy8ivnwm" path="res://assets/TopDownAssets/Sprites/Players/tile_0004.png" id="1_85t5d"]
+[ext_resource type="Script" uid="uid://dwvdivpjx8lsl" path="res://Data/Player/player_data.gd" id="2_vvpcx"]
+
+[resource]
+script = ExtResource("2_vvpcx")
+icon = ExtResource("1_85t5d")
+id = "Cat"
+metadata/_custom_type_script = "uid://dwvdivpjx8lsl"

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://do0rkeu54yqqh"]
+
+[ext_resource type="Script" uid="uid://csrb8x4cgk2v5" path="res://Scenes/Weapons/Ranged/Bullets/bullet_base.gd" id="1_sesr4"]
+[ext_resource type="Texture2D" uid="uid://62erre4aea2m" path="res://assets/TopDownAssets/Sprites/Weapons/All_Fire_Bullet_Pixel_16x16_00.png" id="2_u64o8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvv6f"]
+atlas = ExtResource("2_u64o8")
+region = Rect2(0, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gfvj"]
+atlas = ExtResource("2_u64o8")
+region = Rect2(16, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fiwh"]
+atlas = ExtResource("2_u64o8")
+region = Rect2(32, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f5xk"]
+atlas = ExtResource("2_u64o8")
+region = Rect2(48, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odjxe"]
+atlas = ExtResource("2_u64o8")
+region = Rect2(64, 208, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps7wg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvv6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gfvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fiwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f5xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odjxe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcnml"]
+radius = 8.333333
+
+[node name="BulletBase" type="Area2D" unique_id=59547860]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_sesr4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2044666010]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_ps7wg")
+autoplay = "default"
+frame_progress = 0.12459198
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=234380359]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_qcnml")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

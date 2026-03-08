@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://ctl0jdeulcj7b"]
+
+[ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="1_bhmqt"]
+[ext_resource type="Texture2D" uid="uid://cqvwy8c5l0aod" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0001.png" id="1_j404v"]
+[ext_resource type="PackedScene" uid="uid://ruchdabckcl8" path="res://Scenes/Weapons/Ranged/Bullets/bullet_pistol.tscn" id="1_tbbqq"]
+
+[resource]
+script = ExtResource("1_bhmqt")
+weapon_name = "Pistol"
+icon = ExtResource("1_j404v")
+cooldown = 0.4
+spread = 5.0
+bullet_speed = 250.0
+bullet_scene = ExtResource("1_tbbqq")
+description = "Basic balanced gun"
+metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

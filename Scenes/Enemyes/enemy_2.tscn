@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://tdcbl05x4wu0"]
+
+[ext_resource type="PackedScene" uid="uid://k38ukcowivyf" path="res://Scenes/Enemyes/enemy_base.tscn" id="1_e1e0y"]
+[ext_resource type="Texture2D" uid="uid://cwicgfkojbqyp" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0007.png" id="2_n37ux"]
+[ext_resource type="Texture2D" uid="uid://b3kayyiuw6y6r" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0006.png" id="3_n37ux"]
+[ext_resource type="Texture2D" uid="uid://b71ueposlj0wm" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0004.png" id="5_uq34h"]
+[ext_resource type="Texture2D" uid="uid://dd0lg5al3nqse" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0005.png" id="6_hrdre"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n37ux"]
+load_path = "res://.godot/imported/tile_0007.png-d93041ed56856c603853c3cb46fd222f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r5ah6"]
+load_path = "res://.godot/imported/Shadow.png-3454610d3d27c27ac13716dc668c20d4.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctbpx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n37ux")
+}],
+"loop": false,
+"name": &"die",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n37ux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uq34h")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uq34h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hrdre")
+}],
+"loop": true,
+"name": &"move",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xruu"]
+radius = 3.9999998
+height = 7.9999995
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juisw"]
+radius = 6.0
+height = 14.0
+
+[node name="Enemy2" unique_id=30221422 instance=ExtResource("1_e1e0y")]
+death_texture = SubResource("CompressedTexture2D_n37ux")
+
+[node name="Shadow" parent="." index="0" unique_id=1515469880]
+texture = SubResource("CompressedTexture2D_r5ah6")
+
+[node name="AnimSprite" parent="." index="1" unique_id=1528425262]
+sprite_frames = SubResource("SpriteFrames_ctbpx")
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=901391314]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_8xruu")
+
+[node name="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(620711256) index="0" unique_id=1413415516]
+position = Vector2(0, -11)
+rotation = 0.0
+shape = SubResource("CapsuleShape2D_juisw")

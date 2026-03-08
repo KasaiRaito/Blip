@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://1ps47x4oeiku"]
+
+[ext_resource type="Texture2D" uid="uid://ddl1y3k5qm3mu" path="res://assets/TopDownAssets/Sprites/Weapons/Tiles/tile_0008.png" id="2_wv1qy"]
+[ext_resource type="Script" uid="uid://vdcpdk6x6ppo" path="res://Data/Weapon/weapon_data.gd" id="3_83yxe"]
+
+[resource]
+script = ExtResource("3_83yxe")
+weapon_name = "Sword"
+icon = ExtResource("2_wv1qy")
+damage = 0.5
+cooldown = 0.2
+spread = 0.0
+bullet_speed = 0.0
+description = "fast low damage sword"
+metadata/_custom_type_script = "uid://vdcpdk6x6ppo"

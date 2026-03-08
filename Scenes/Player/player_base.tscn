@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bnn8r4vmt6vjy"]
+
+[ext_resource type="Script" uid="uid://d0wb237vhun75" path="res://Scenes/Player/player.gd" id="1_jfsk2"]
+[ext_resource type="Resource" uid="uid://bagrckj5hwhu6" path="res://Data/Player/player_dog.tres" id="2_isex5"]
+[ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_kxl1r"]
+[ext_resource type="Script" uid="uid://c0d0aiotcww18" path="res://Scenes/Components/health_component.gd" id="4_l7qia"]
+[ext_resource type="Script" uid="uid://dbd4fbg5wl6oo" path="res://Scenes/Player/weapon_controller.gd" id="5_pcgkm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtsbd"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxl1r"]
+
+[node name="PlayerBase" type="CharacterBody2D" unique_id=200738549]
+collision_layer = 2
+script = ExtResource("1_jfsk2")
+data = ExtResource("2_isex5")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=2017909200]
+scale = Vector2(1.25, 1.25)
+
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=54255787]
+scale = Vector2(1.2, 1)
+texture = ExtResource("2_kxl1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=982596316]
+unique_name_in_owner = true
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_vtsbd")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718262409]
+position = Vector2(1, -8)
+scale = Vector2(0.68, 0.56)
+shape = SubResource("CapsuleShape2D_kxl1r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1614318113]
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1173375576]
+script = ExtResource("4_l7qia")
+metadata/_custom_type_script = "uid://c0d0aiotcww18"
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=500209724]
+position = Vector2(1, -8)
+script = ExtResource("5_pcgkm")
+
+[connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
+[connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]
+[connection signal="on_unit_heal" from="HealthComponent" to="." method="_on_health_component_on_unit_heal"]

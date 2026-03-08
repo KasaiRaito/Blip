@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://k38ukcowivyf"]
+
+[ext_resource type="AudioStream" uid="uid://dmai3vjk5si8m" path="res://assets/TopDownAssets/Sounds/enemy_hurt_1.ogg" id="1_lolro"]
+[ext_resource type="Script" uid="uid://dh7d7k3fgxpfu" path="res://Scenes/Enemyes/enemy.gd" id="1_vtmid"]
+[ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_4kv8l"]
+[ext_resource type="Texture2D" uid="uid://c4stgcaqqu7as" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0003.png" id="3_5l0xp"]
+[ext_resource type="Texture2D" uid="uid://bmi1eu80faffk" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0002.png" id="4_c5jfj"]
+[ext_resource type="Texture2D" uid="uid://d2gowyxbvkf5g" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0001.png" id="5_8s2fc"]
+[ext_resource type="Texture2D" uid="uid://cgvslb1dnigc8" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0000.png" id="6_mx4lp"]
+[ext_resource type="PackedScene" uid="uid://bfm050da2m0gp" path="res://Scenes/Components/health_component.tscn" id="8_5l0xp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qbmt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5l0xp")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c5jfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8s2fc")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mx4lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8s2fc")
+}],
+"loop": true,
+"name": &"move",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kv8l"]
+radius = 3.9999998
+height = 7.9999995
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5l0xp"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kv8l"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l0xp"]
+bg_color = Color(1, 0, 0, 0.78431374)
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=30221422]
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+script = ExtResource("1_vtmid")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1515469880]
+position = Vector2(0.5000004, 2.3841858e-07)
+scale = Vector2(1.3125001, 1.3125001)
+texture = ExtResource("2_4kv8l")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=1528425262]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_0qbmt")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.47885394
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=901391314]
+position = Vector2(0, -4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4kv8l")
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=620711256]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1413415516]
+position = Vector2(0, -4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5l0xp")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=1094997954]
+stream = ExtResource("1_lolro")
+
+[node name="HP_Bar" type="ProgressBar" parent="." unique_id=1757553725]
+custom_minimum_size = Vector2(20, 2)
+offset_left = -10.0
+offset_top = -22.0
+offset_right = 10.0
+offset_bottom = -20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4kv8l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5l0xp")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="HealthComponent" parent="." unique_id=1175382988 instance=ExtResource("8_5l0xp")]
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="on_unit_damage" from="HealthComponent" to="." method="_on_health_component_on_unit_damage"]
+[connection signal="on_unit_dead" from="HealthComponent" to="." method="_on_health_component_on_unit_dead"]
