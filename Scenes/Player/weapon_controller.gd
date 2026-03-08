@@ -4,13 +4,10 @@ class_name WeaponController
 var current_weapon: Weapon
 var target_position: Vector2
 
-func _process(delta: float) -> void:
-	target_position = get_global_mouse_position()
-	rotate_weapon()
-
-func equip_weapon() -> void:
+func equip_weapon(data: WeaponData) -> void:
+	var weapon_scene = Global.all_weapons[data.weapon_name]
 	var weapon: Weapon = Global.get_weapon().instantiate()
-	#weapon.global_position = Vector2(1.0,-8.0)
+	
 	current_weapon = weapon
 	current_weapon.data = Global.selected_weapon
 	add_child(weapon)

@@ -10,11 +10,22 @@ class_name Player
 var can_move = true
 var movement: Vector2
 var direction: Vector2
+var cooldown: float
 
 func _ready() -> void:
 	health_component.init_health(data.max_hp)
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	weapon_controller.target_position = get_global_mouse_position()
+	weapon_controller.rotate_weapon()
+	
+	cooldown -= delta
+	
+	if Input.is_action_pressed("Shoot") and cooldown <= 0:
+		weapon_controller.current_weapon.use_weapon()
+		cooldown = weapon_controller.current_weapon.data.cooldown
+
+func _physics_process(_delta: float) -> void:
 	if not can_move:
 		return
 	

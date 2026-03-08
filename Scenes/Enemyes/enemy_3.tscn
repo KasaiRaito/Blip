@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://8v1rtvhphnj6"]
 
 [ext_resource type="PackedScene" uid="uid://k38ukcowivyf" path="res://Scenes/Enemyes/enemy_base.tscn" id="1_ajvgw"]
+[ext_resource type="Resource" uid="uid://mon8lenjku6j" path="res://Data/Weapon/Enemy/enemy_pistol.tres" id="2_ffogc"]
 [ext_resource type="Texture2D" uid="uid://vasb2ne13fd0" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0011.png" id="2_htdsp"]
 [ext_resource type="Texture2D" uid="uid://dotdkqrc8qv7q" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0009.png" id="5_24r21"]
 [ext_resource type="Texture2D" uid="uid://cs16bhrafjd28" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0008.png" id="6_obbra"]
@@ -54,7 +55,12 @@ radius = 6.0
 height = 16.0
 
 [node name="Enemy3" unique_id=30221422 instance=ExtResource("1_ajvgw")]
+max_health = 5
+collision_damage = 2.0
 death_texture = SubResource("CompressedTexture2D_htdsp")
+chase_speed = 60.0
+weapon_speed = 40.0
+weapon = ExtResource("2_ffogc")
 
 [node name="Shadow" parent="." index="0" unique_id=1515469880]
 texture = SubResource("CompressedTexture2D_gc6js")

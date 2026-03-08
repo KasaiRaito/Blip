@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b4gv4fuusfq70"]
 
 [ext_resource type="PackedScene" uid="uid://k38ukcowivyf" path="res://Scenes/Enemyes/enemy_base.tscn" id="1_5qbi7"]
+[ext_resource type="Resource" uid="uid://mon8lenjku6j" path="res://Data/Weapon/Enemy/enemy_pistol.tres" id="2_nx1ke"]
 [ext_resource type="Texture2D" uid="uid://dt305ttjc2qw7" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0015.png" id="2_xin0i"]
 [ext_resource type="Texture2D" uid="uid://xo043uc37wpm" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0014.png" id="3_mow7o"]
 [ext_resource type="Texture2D" uid="uid://dlawjfchfn4so" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0013.png" id="4_nx1ke"]
 [ext_resource type="Texture2D" uid="uid://cijt4b5liatug" path="res://assets/TopDownAssets/Sprites/Enemies/Sprites/tile_0012.png" id="5_x8dia"]
+[ext_resource type="Script" uid="uid://dbd4fbg5wl6oo" path="res://Scenes/Player/weapon_controller.gd" id="6_mow7o"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xin0i"]
 load_path = "res://.godot/imported/tile_0015.png-d96aa489ec7e2067585b07150b62d004.ctex"
@@ -55,6 +57,7 @@ height = 16.0
 
 [node name="Enemy4" unique_id=30221422 instance=ExtResource("1_5qbi7")]
 death_texture = SubResource("CompressedTexture2D_xin0i")
+weapon = ExtResource("2_nx1ke")
 
 [node name="Shadow" parent="." index="0" unique_id=1515469880]
 texture = SubResource("CompressedTexture2D_hq7b5")
@@ -70,3 +73,7 @@ shape = SubResource("CapsuleShape2D_i7elq")
 position = Vector2(1, -8)
 rotation = 0.0
 shape = SubResource("CapsuleShape2D_eo2yx")
+
+[node name="WeaponController" type="Node2D" parent="." index="8" unique_id=276935547]
+script = ExtResource("6_mow7o")
+metadata/_custom_type_script = "uid://dbd4fbg5wl6oo"

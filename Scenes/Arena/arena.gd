@@ -135,7 +135,7 @@ func load_game_selection() -> void:
 	player = Global.get_player().instantiate()
 	add_child(player)
 	player.global_position = spawn_position.global_position
-	player.weapon_controller.equip_weapon()
+	player.weapon_controller.equip_weapon(Global.selected_weapon)
 	
 	Global.player_ref = player
 
