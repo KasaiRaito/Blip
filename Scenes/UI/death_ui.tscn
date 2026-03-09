@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://c8mtune6g2oh"]
+
+[ext_resource type="Script" uid="uid://ciatkc1aqms48" path="res://Scenes/UI/death_ui.gd" id="1_b0jaf"]
+[ext_resource type="LabelSettings" uid="uid://dtxh3s041i0kb" path="res://Extra/FONT_48.tres" id="2_pc4mo"]
+[ext_resource type="PackedScene" uid="uid://bmvhj43rwj71o" path="res://Scenes/UI/SceneComponents/back_groun.tscn" id="3_dewwu"]
+[ext_resource type="Texture2D" uid="uid://dy8e3xkc5qdbp" path="res://assets/TopDownAssets/Sprites/Interface/Tilemap/tilemap_packed.png" id="3_kqs2k"]
+[ext_resource type="LabelSettings" uid="uid://dncjn445hyppc" path="res://Extra/FONT_16.tres" id="4_dewwu"]
+[ext_resource type="AudioStream" uid="uid://dtxhputnlac6" path="res://assets/TopDownAssets/Sounds/select-a.ogg" id="5_kqs2k"]
+[ext_resource type="AudioStream" uid="uid://dlyw3ke5ldgn7" path="res://assets/TopDownAssets/Sounds/button_hover.wav" id="6_dewwu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqs2k"]
+atlas = ExtResource("3_kqs2k")
+region = Rect2(80, 65, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6xs8"]
+atlas = ExtResource("3_kqs2k")
+region = Rect2(112, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p0dn"]
+atlas = ExtResource("3_kqs2k")
+region = Rect2(112, 66, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6yj8"]
+atlas = ExtResource("3_kqs2k")
+region = Rect2(113, 49, 46, 14)
+
+[node name="DeathUI" type="Control" unique_id=432676816]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0jaf")
+menu_cursor = SubResource("AtlasTexture_kqs2k")
+
+[node name="BackGroun" parent="." unique_id=1565211568 instance=ExtResource("3_dewwu")]
+layout_mode = 1
+
+[node name="Tittle" type="Label" parent="." unique_id=547708092]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 10.0
+offset_right = 124.0
+offset_bottom = 70.0
+grow_horizontal = 2
+text = "You are Dead"
+label_settings = ExtResource("2_pc4mo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainButtons" type="Control" parent="." unique_id=1930711072]
+custom_minimum_size = Vector2(355, 220)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -86.0
+offset_right = 180.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons" unique_id=1581617922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Play" type="Control" parent="MainButtons/VBoxContainer" unique_id=1939348950]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="RetryButton" type="TextureButton" parent="MainButtons/VBoxContainer/Play" unique_id=164767646]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -24.0
+offset_right = 90.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_q6xs8")
+texture_pressed = SubResource("AtlasTexture_4p0dn")
+texture_hover = SubResource("AtlasTexture_b6yj8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Play/RetryButton" unique_id=151022270]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<< Go Back In"
+label_settings = ExtResource("4_dewwu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play2" type="Control" parent="MainButtons/VBoxContainer" unique_id=595066758]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="ChangeHeroButton" type="TextureButton" parent="MainButtons/VBoxContainer/Play2" unique_id=368144282]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -24.0
+offset_right = 90.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_q6xs8")
+texture_pressed = SubResource("AtlasTexture_4p0dn")
+texture_hover = SubResource("AtlasTexture_b6yj8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Play2/ChangeHeroButton" unique_id=1106432210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Change Hero"
+label_settings = ExtResource("4_dewwu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Control" parent="MainButtons/VBoxContainer" unique_id=1712726543]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="QuitButton" type="TextureButton" parent="MainButtons/VBoxContainer/Quit" unique_id=1694002595]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -24.0
+offset_right = 90.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_q6xs8")
+texture_pressed = SubResource("AtlasTexture_4p0dn")
+texture_hover = SubResource("AtlasTexture_b6yj8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainButtons/VBoxContainer/Quit/QuitButton" unique_id=819409804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+label_settings = ExtResource("4_dewwu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI_Sound" type="AudioStreamPlayer" parent="." unique_id=194166833]
+stream = ExtResource("5_kqs2k")
+bus = &"SFX"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=760941264]
+stream = ExtResource("6_dewwu")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="MainButtons/VBoxContainer/Play/RetryButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/Play/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="mouse_entered" from="MainButtons/VBoxContainer/Play2/ChangeHeroButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/Play2/ChangeHeroButton" to="." method="_on_change_hero_button_pressed"]
+[connection signal="mouse_entered" from="MainButtons/VBoxContainer/Quit/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/Quit/QuitButton" to="." method="_on_quit_button_pressed"]

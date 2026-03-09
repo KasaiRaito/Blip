@@ -9,6 +9,8 @@ const BLOOD_EFFECT_SCENE = preload("uid://cgc7s2mc1ynuu")
 const CHEST_SCENE = preload("uid://du5eegue7r88n")
 const STORE_ITEM_SCENE = preload("uid://cpi8pej5bnfqa")
 const HIT_MATERIAL = preload("uid://cjtvfxwrxriq0")
+const PORTAL_SCENE = preload("uid://drcd82q8vuahq")
+const DEATH_UI_Scene = preload("uid://c8mtune6g2oh")
 
 var settings: Dictionary = {
 	"music": true, "music_volume": 10,

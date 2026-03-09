@@ -8,3 +8,4 @@ signal on_player_death
 signal on_enemy_death
 signal on_room_creared
 signal on_coin_picked
+signal on_portal_reached

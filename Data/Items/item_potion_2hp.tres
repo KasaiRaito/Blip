@@ -10,5 +10,5 @@ id = "Potion"
 name = "Potion +2HP"
 value = 2.0
 price = 3.0
-description = "Recuperate HP"
+description = "Recuperate 2HP"
 metadata/_custom_type_script = "uid://bmw7vogbpdufm"

@@ -75,6 +75,7 @@ func _on_health_component_on_unit_dead() -> void:
 	anim_sprite.play("dead")
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
+	EventBus.on_player_death.emit()
 	#EventBus.on_player_death.emit()
 
 func _on_health_component_on_unit_heal(amount: float) -> void:

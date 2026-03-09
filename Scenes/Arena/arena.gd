@@ -26,8 +26,11 @@ func _ready() -> void:
 	Cursor.sprite.texture = arena_curson
 	EventBus.on_player_health_change.connect(_on_player_health_change)
 	EventBus.on_player_room_entered.connect(_on_player_room_entered)
+	EventBus.on_player_death.connect(_on_player_death)
+	
 	EventBus.on_room_creared.connect(_on_room_cleared)
 	EventBus.on_coin_picked.connect(_on_coin_picked)
+	EventBus.on_portal_reached.connect(_on_portal_reached)
 	
 	grid_cell_size = Vector2i(
 		level_data.room_size.x + level_data.corridor_size.x,
@@ -89,6 +92,10 @@ func create_rooms() -> void:
 		if room_coord == store_room_coord:
 			room_instance.is_cleared = true
 			room_instance.setup_room_as_shoop(level_data)
+		
+		if room_coord == end_room_coord:
+			room_instance.is_cleared = true
+			room_instance.setup_room_as_portal()
 		
 		connect_rooms(room_coord, room_instance)
 
@@ -200,3 +207,9 @@ func _on_coin_picked() -> void:
 	coin_sound.volume_db = randf_range(-8,-5)
 	coin_sound.play()
 	total_coins.text = "$" + str(Global.coins)
+
+func _on_portal_reached() -> void:
+	Transition.transition_to("res://Scenes/UI/main_menu.tscn")
+
+func _on_player_death() -> void:
+	Transition.transition_to("res://Scenes/UI/death_ui.tscn")

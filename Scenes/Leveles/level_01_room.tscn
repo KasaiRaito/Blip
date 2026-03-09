@@ -84,4 +84,6 @@ position = Vector2(-50, 0)
 [node name="ItemPos3" type="Marker2D" parent="." unique_id=2019806932]
 position = Vector2(50, 0)
 
+[node name="PortalPos" type="Marker2D" parent="." unique_id=996243861]
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

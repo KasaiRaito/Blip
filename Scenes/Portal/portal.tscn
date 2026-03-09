@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://drcd82q8vuahq"]
+
+[ext_resource type="Script" uid="uid://cs0f0cyijlf7j" path="res://Scenes/Portal/portal.gd" id="1_lohxq"]
+[ext_resource type="Texture2D" uid="uid://b7cnv3rm7kk8g" path="res://assets/TopDownAssets/Sprites/Dimensional_Portal.png" id="1_w8r0a"]
+[ext_resource type="Texture2D" uid="uid://dawvmsgg5mc6o" path="res://assets/TopDownAssets/Sprites/Shadow.png" id="2_hcp0q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lohxq"]
+atlas = ExtResource("1_w8r0a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcp0q"]
+atlas = ExtResource("1_w8r0a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sba7r"]
+atlas = ExtResource("1_w8r0a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdmyi"]
+atlas = ExtResource("1_w8r0a")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn42h"]
+atlas = ExtResource("1_w8r0a")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyxjy"]
+atlas = ExtResource("1_w8r0a")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxoxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lohxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcp0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sba7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdmyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn42h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyxjy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jrbg"]
+radius = 5.0
+height = 24.0
+
+[node name="Portal" type="Area2D" unique_id=1455987224]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_lohxq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1094234958]
+position = Vector2(0, 15.5)
+texture = ExtResource("2_hcp0q")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=218807107]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_uxoxt")
+frame_progress = 0.3123699
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103570043]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_6jrbg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

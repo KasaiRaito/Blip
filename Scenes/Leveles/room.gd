@@ -2,6 +2,7 @@ extends Node2D
 class_name LevelRoom
 
 @export var item_positions: Array[Marker2D]
+@onready var portal_pos: Marker2D = $PortalPos
 
 @onready var player_spawn_position: Marker2D = $PlayerSpawnPosition
 @onready var tile_data: TileMapLayer = $TileData
@@ -42,6 +43,11 @@ func setup_room_as_shoop(data: LevelData) -> void:
 		add_child(item)
 		item.global_position = item_pos.global_position
 		item.set_up(item_data)
+
+func setup_room_as_portal() -> void:
+	var portal = Global.PORTAL_SCENE.instantiate() as Node2D
+	add_child(portal)
+	portal.global_position = portal_pos.global_position
 
 func get_free_spawn_position()-> Vector2:
 	var tile_coord: Vector2i = tiles.pick_random()
