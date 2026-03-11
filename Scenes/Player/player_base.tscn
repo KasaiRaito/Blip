@@ -31,6 +31,9 @@ animations = [{
 collision_layer = 2
 script = ExtResource("1_jfsk2")
 data = ExtResource("2_isex5")
+max_rewing_time = 10.0
+rewind_frequency = 30.0
+rewind_speed = 10.0
 
 [node name="Visuals" type="Node2D" parent="." unique_id=2017909200]
 scale = Vector2(1.25, 1.25)

@@ -25,6 +25,7 @@ func _ready() -> void:
 	#Autoload
 	Cursor.sprite.texture = arena_curson
 	EventBus.on_player_health_change.connect(_on_player_health_change)
+	EventBus.on_player_rewind_change.connect(_on_player_rewind_change)
 	EventBus.on_player_room_entered.connect(_on_player_room_entered)
 	EventBus.on_player_death.connect(_on_player_death)
 	
@@ -179,6 +180,10 @@ func find_coord_from_room(room: LevelRoom) -> Vector2i:
 func _on_player_health_change(current_health : float, max_health : float) -> void:
 	health_bar.value = (current_health / max_health)
 
+func _on_player_rewind_change(current_rewind: float, max_rewind: float) -> void:
+	mana_bar.value = (current_rewind / max_rewind)
+	print ("UPDATE REWIND: %s" % int(current_rewind / max_rewind))
+
 func _on_player_room_entered(room: LevelRoom) -> void:
 	if room != current_room:
 		current_room = room
@@ -190,6 +195,8 @@ func _on_player_room_entered(room: LevelRoom) -> void:
 	if not room.is_cleared:
 		room.lock_room()
 		enemy_spawner.spawn_enemies(level_data, room)
+		
+		EventBus.on_player_enter_room.emit()
 
 func _on_room_cleared() -> void:
 	current_room.unluck_room()

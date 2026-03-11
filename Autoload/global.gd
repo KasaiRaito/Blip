@@ -40,6 +40,7 @@ var all_weapons: Dictionary[String, PackedScene] = {
 var player_ref: Player
 var selected_player: PlayerData
 var selected_weapon: WeaponData
+var rewinding: bool
 var coins: int = 0
 
 func get_player() -> PackedScene:
