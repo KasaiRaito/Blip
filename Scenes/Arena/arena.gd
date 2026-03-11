@@ -8,10 +8,14 @@ class_name Arena
 @onready var mana_bar: TextureProgressBar = %ManaBar
 @onready var map_controller: MapController = $UI/MapController
 @onready var enemy_spawner: EnemySpawner = $EnemySpawner
+@onready var total_coins: Label = $UI/Coins/TotalCoins
+@onready var coin_sound: AudioStreamPlayer = $CoinSound
 
 var grid: Dictionary[Vector2i, LevelRoom] = {}
 var start_room_coord: Vector2i
 var end_room_coord: Vector2i
+var store_room_coord: Vector2i
+
 var grid_cell_size: Vector2i
 
 var player: Player
@@ -21,8 +25,13 @@ func _ready() -> void:
 	#Autoload
 	Cursor.sprite.texture = arena_curson
 	EventBus.on_player_health_change.connect(_on_player_health_change)
+	EventBus.on_player_rewind_change.connect(_on_player_rewind_change)
 	EventBus.on_player_room_entered.connect(_on_player_room_entered)
+	EventBus.on_player_death.connect(_on_player_death)
+	
 	EventBus.on_room_creared.connect(_on_room_cleared)
+	EventBus.on_coin_picked.connect(_on_coin_picked)
+	EventBus.on_portal_reached.connect(_on_portal_reached)
 	
 	grid_cell_size = Vector2i(
 		level_data.room_size.x + level_data.corridor_size.x,
@@ -37,6 +46,8 @@ func _ready() -> void:
 	
 	var first_room: LevelRoom = grid[Vector2i.ZERO]
 	first_room.is_cleared = true
+	
+	total_coins.text = "$" + str(Global.coins)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -78,6 +89,15 @@ func create_rooms() -> void:
 		room_instance.create_props(level_data)
 		
 		grid[room_coord] = room_instance
+		
+		if room_coord == store_room_coord:
+			room_instance.is_cleared = true
+			room_instance.setup_room_as_shoop(level_data)
+		
+		if room_coord == end_room_coord:
+			room_instance.is_cleared = true
+			room_instance.setup_room_as_portal()
+		
 		connect_rooms(room_coord, room_instance)
 
 func create_corridors() -> void:
@@ -115,6 +135,17 @@ func connect_rooms(room_coord: Vector2i, room_instance: LevelRoom) -> void:
 func select_special_rooms() -> void:
 	start_room_coord = Vector2i.ZERO
 	end_room_coord = find_farthest_room()
+	
+	var candidate_coord = grid.keys()
+	candidate_coord.erase(start_room_coord)
+	candidate_coord.erase(end_room_coord)
+	
+	if not candidate_coord.is_empty():
+		store_room_coord = candidate_coord.pick_random()
+	else:
+		store_room_coord = Vector2i.MAX
+		print("No Shop Coord")
+	
 
 func find_farthest_room() -> Vector2i:
 	var farthest_room_coord: Vector2i = start_room_coord
@@ -149,6 +180,10 @@ func find_coord_from_room(room: LevelRoom) -> Vector2i:
 func _on_player_health_change(current_health : float, max_health : float) -> void:
 	health_bar.value = (current_health / max_health)
 
+func _on_player_rewind_change(current_rewind: float, max_rewind: float) -> void:
+	mana_bar.value = (current_rewind / max_rewind)
+	print ("UPDATE REWIND: %s" % int(current_rewind / max_rewind))
+
 func _on_player_room_entered(room: LevelRoom) -> void:
 	if room != current_room:
 		current_room = room
@@ -160,7 +195,28 @@ func _on_player_room_entered(room: LevelRoom) -> void:
 	if not room.is_cleared:
 		room.lock_room()
 		enemy_spawner.spawn_enemies(level_data, room)
+		
+		EventBus.on_player_enter_room.emit()
 
 func _on_room_cleared() -> void:
 	current_room.unluck_room()
 	current_room.is_cleared = true
+	
+	var tile_pos: = current_room.get_free_spawn_position()
+	var chest_pos: = current_room.to_global(tile_pos)
+	var chest = Global.CHEST_SCENE.instantiate() as Chest
+	get_tree().root.add_child(chest)
+	chest.global_position = chest_pos
+	
+
+func _on_coin_picked() -> void:
+	coin_sound.pitch_scale = randf_range(0.9,1.1)
+	coin_sound.volume_db = randf_range(-8,-5)
+	coin_sound.play()
+	total_coins.text = "$" + str(Global.coins)
+
+func _on_portal_reached() -> void:
+	Transition.transition_to("res://Scenes/UI/main_menu.tscn")
+
+func _on_player_death() -> void:
+	Transition.transition_to("res://Scenes/UI/death_ui.tscn")

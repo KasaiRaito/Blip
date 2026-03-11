@@ -3,6 +3,7 @@ class_name WeaponRange
 
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var fire_position: Marker2D = %FirePosition
+@onready var shoot_sound: AudioStreamPlayer = $ShootSound
 
 var direction: Vector2
 var cooldown: float 
@@ -20,6 +21,9 @@ func use_weapon() -> void:
 	bullet.setup(data)
 	get_tree().root.add_child(bullet)
 	cooldown = data.cooldown
+	shoot_sound.pitch_scale = randf_range(0.75,1.25)
+	shoot_sound.volume_db = randf_range(-15,-10)
+	shoot_sound.play()
 
 func rotate_weapon() -> void:
 	direction = get_global_mouse_position() - global_position

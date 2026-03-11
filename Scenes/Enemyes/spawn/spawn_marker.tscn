@@ -88,5 +88,6 @@ autoplay = &"in"
 
 [node name="SpawnSound" type="AudioStreamPlayer" parent="." unique_id=1520687079]
 stream = ExtResource("2_svh35")
+volume_db = -5.0
 autoplay = true
 bus = &"SFX"

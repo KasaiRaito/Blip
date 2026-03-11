@@ -87,7 +87,12 @@ func _on_weapon_card_pressed(data: WeaponData, selected_card: WeaponCard) -> voi
 			card.selector.show()
 
 func _on_play_button_mouse_entered() -> void:
+	hover_sound.pitch_scale = randf_range(0.75,1.25)
+	hover_sound.volume_db = randf_range(-1,1)
 	hover_sound.play()
 
 func _on_back_button_mouse_entered() -> void:
+	
+	hover_sound.pitch_scale = randf_range(0.75,1.25)
+	hover_sound.volume_db = randf_range(-1,1)
 	hover_sound.play()

@@ -23,6 +23,8 @@ func set_description() -> void:
 	description_panel.set_text(data.description)
 
 func _on_mouse_entered() -> void:
+	hover_sound.pitch_scale = randf_range(0.75,1.25)
+	hover_sound.volume_db = randf_range(-1,1)
 	hover_sound.play()
 	DampedOscillator.animate(icon, "scale", randf_range(400.0, 450.0), randf_range(5.0, 10.0), randf_range(10.0,15.0), 0.5)
 	

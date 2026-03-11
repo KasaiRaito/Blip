@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://f01wnk2rwox"]
+
+[ext_resource type="Texture2D" uid="uid://0poobuecm0un" path="res://assets/TopDownAssets/Sprites/Items/Item_White1.png" id="1_tjx77"]
+[ext_resource type="Script" uid="uid://bmw7vogbpdufm" path="res://Data/Items/item_data.gd" id="2_1ibn3"]
+
+[resource]
+script = ExtResource("2_1ibn3")
+icon = ExtResource("1_tjx77")
+id = "Potion"
+name = "Potion +10HP"
+value = 2.0
+price = 3.0
+rarity = "Rare"
+description = "Recuperate +10HP"
+metadata/_custom_type_script = "uid://bmw7vogbpdufm"

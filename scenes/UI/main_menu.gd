@@ -119,4 +119,6 @@ func _notification(what: int) -> void:
 		Global.save_data()
 
 func on_button_mouse_entered() -> void:
+	hover_sound.pitch_scale = randf_range(0.75,1.25)
+	hover_sound.volume_db = randf_range(-1,1)
 	hover_sound.play()

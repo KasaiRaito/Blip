@@ -17,3 +17,17 @@ class_name LevelData
 
 @export var enemy_scenes: Array[PackedScene]
 @export var store_data: Array[LevelStoreData]
+
+
+func get_random_store_item() -> ItemData:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	
+	var weights: PackedFloat32Array = []
+	
+	for data in store_data:
+		weights.append(data.item_prob)
+	
+	var index: int = rng.rand_weighted(weights)
+	
+	return store_data[index].item_data

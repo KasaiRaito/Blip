@@ -148,6 +148,9 @@ func enemy_death() -> void:
 	queue_free()
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
+	if not body is Player or Global.rewinding:
+		return
+	
 	body.health_component.take_damage(collision_damage)
 	enemy_death()
 
@@ -156,6 +159,10 @@ func _on_health_component_on_unit_damage(amount: float) -> void:
 	hp_bar.value = health_component.current_health / max_health
 	
 	anim_sprite.material = hit_material
+	
+	hurt_sound.pitch_scale = randf_range(0.75,1.25)
+	hurt_sound.volume_db = randf_range(-15,-8)
+	hurt_sound.play()
 	
 	anim_sprite.play("hurt")
 	Engine.time_scale = 0.9

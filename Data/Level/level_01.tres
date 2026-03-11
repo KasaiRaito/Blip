@@ -14,6 +14,25 @@
 [ext_resource type="PackedScene" uid="uid://b2xhdw4qvuqem" path="res://Scenes/Props/plant_4.tscn" id="5_bvicp"]
 [ext_resource type="PackedScene" uid="uid://c73l74qsar2u6" path="res://Scenes/Leveles/level_01_VCorridor.tscn" id="5_xaqnb"]
 [ext_resource type="PackedScene" uid="uid://c73u1kxnreffb" path="res://Scenes/Props/plant_5.tscn" id="6_wqwp3"]
+[ext_resource type="Resource" uid="uid://4pktnhk55jdd" path="res://Data/Items/item_potion_2hp.tres" id="14_djh8p"]
+
+[sub_resource type="Resource" id="Resource_xk63r"]
+script = ExtResource("2_wrwk1")
+item_data = ExtResource("14_djh8p")
+item_prob = 4.0
+metadata/_custom_type_script = "uid://qe1c47i024i5"
+
+[sub_resource type="Resource" id="Resource_ftmta"]
+script = ExtResource("2_wrwk1")
+item_data = ExtResource("14_djh8p")
+item_prob = 2.0
+metadata/_custom_type_script = "uid://qe1c47i024i5"
+
+[sub_resource type="Resource" id="Resource_32iwk"]
+script = ExtResource("2_wrwk1")
+item_data = ExtResource("14_djh8p")
+item_prob = 1.0
+metadata/_custom_type_script = "uid://qe1c47i024i5"
 
 [resource]
 script = ExtResource("1_pm2ap")
@@ -22,4 +41,5 @@ h_corridor = ExtResource("1_lrgif")
 v_corridor = ExtResource("5_xaqnb")
 props = Array[PackedScene]([ExtResource("2_2k02h"), ExtResource("3_wqwp3"), ExtResource("4_w13gu"), ExtResource("5_bvicp"), ExtResource("6_wqwp3")])
 enemy_scenes = Array[PackedScene]([ExtResource("1_ipixk"), ExtResource("2_djh8p"), ExtResource("3_xk63r"), ExtResource("4_ftmta")])
+store_data = Array[ExtResource("2_wrwk1")]([SubResource("Resource_xk63r"), SubResource("Resource_ftmta"), SubResource("Resource_32iwk")])
 metadata/_custom_type_script = "uid://dgimcu0xqm6iw"
