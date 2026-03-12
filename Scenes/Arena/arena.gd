@@ -49,11 +49,6 @@ func _ready() -> void:
 	
 	total_coins.text = "$" + str(Global.coins)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		current_room.unluck_room()
-		current_room.is_cleared = true
-
 func generate_level_layout() -> void:
 	grid.clear()
 	print("Create layout...")
